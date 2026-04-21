@@ -1,0 +1,170 @@
+// =========================================================
+// WESTGATE BOOTSTRAP VARIABLE OVERRIDES FOR NODEBB
+// Put this before Bootstrap/NodeBB imports that consume variables
+// =========================================================
+
+// --- Core palette
+$white: #f5efe4;
+$black: #08070a;
+
+$gray-100: #f0ebe2;
+$gray-200: #ddd5c8;
+$gray-300: #c7bcad;
+$gray-400: #a99d8e;
+$gray-500: #8b8074;
+$gray-600: #6f665d;
+$gray-700: #4d4746;
+$gray-800: #1a161d;
+$gray-900: #0b0a0d;
+
+// Accent / theme hues
+$blue: #7cafc2; // muted lore blue
+$indigo: #6c5a8e;
+$purple: #7b4a6f;
+$pink: #a06179;
+$red: #9c4b4b;
+$orange: #b57a45;
+$yellow: #c2a35a; // signature Westgate gold
+$green: #6f8c5b;
+$teal: #5d8c83;
+$cyan: #6f9eae;
+
+// --- Semantic theme colors
+$primary: #c2a35a;
+$secondary: #1a161d;
+$success: #6f8c5b;
+$info: #6f9eae;
+$warning: #c2a35a;
+$danger: #9c4b4b;
+$light: #ddd5c8;
+$dark: #0b0a0d;
+
+// --- Body / text / links
+$body-bg: #0b0a0d;
+$body-color: #e6e0d6;
+
+$link-color: #d8c28a;
+$link-hover-color: #e0c878;
+
+$emphasis-color: #f0e8dc;
+$secondary-color: #b9b2a6;
+$tertiary-color: #9a9086;
+
+$headings-color: #efe7da;
+
+// --- Borders / surfaces
+$border-color: #2a252d;
+$border-color-translucent: rgba(194, 163, 90, 0.12);
+
+$card-bg: #17151a;
+$card-cap-bg: #141219;
+$card-border-color: rgba(194, 163, 90, 0.12);
+
+$dropdown-bg: #141219;
+$dropdown-border-color: rgba(194, 163, 90, 0.14);
+$dropdown-link-color: #b9b2a6;
+$dropdown-link-hover-color: #efe7da;
+$dropdown-link-hover-bg: #241e26;
+$dropdown-link-active-color: #fff4dd;
+$dropdown-link-active-bg: #2a2215;
+$dropdown-header-color: #9a9086;
+
+$modal-content-bg: #141219;
+$modal-content-border-color: rgba(194, 163, 90, 0.14);
+$popover-bg: #141219;
+$popover-border-color: rgba(194, 163, 90, 0.14);
+$tooltip-bg: #221c24;
+$tooltip-color: #e6e0d6;
+
+// --- Inputs / forms
+$input-bg: #110f15;
+$input-color: #e6e0d6;
+$input-border-color: #2a252d;
+$input-placeholder-color: #8f877d;
+$input-focus-bg: #151219;
+$input-focus-color: #f0e8dc;
+$input-focus-border-color: rgba(194, 163, 90, 0.42);
+$input-group-addon-bg: #1a161d;
+$input-group-addon-border-color: #2a252d;
+
+$form-check-input-bg: #151219;
+$form-check-input-border: 1px solid rgba(194, 163, 90, 0.35);
+$form-check-input-checked-bg-color: #a8893f;
+$form-check-input-checked-border-color: #c2a35a;
+
+// --- Navs / tabs / pills
+$nav-link-color: #b9b2a6;
+$nav-link-hover-color: #e6e0d6;
+$nav-tabs-border-color: #2a252d;
+$nav-tabs-link-hover-border-color: rgba(194, 163, 90, 0.18);
+$nav-tabs-link-active-color: #e0c878;
+$nav-tabs-link-active-bg: #141219;
+$nav-tabs-link-active-border-color: rgba(194, 163, 90, 0.24);
+
+$nav-pills-link-active-color: #fff4dd;
+$nav-pills-link-active-bg: #473914;
+
+// --- Buttons
+$btn-color: #b9b2a6;
+$btn-border-radius: 0.45rem;
+$btn-focus-box-shadow: 0 0 0 0.2rem rgba(194, 163, 90, 0.16);
+
+$btn-close-color: #e6e0d6;
+$btn-close-opacity: 0.75;
+$btn-close-hover-opacity: 1;
+
+// --- List groups / tables
+$list-group-bg: #141219;
+$list-group-border-color: rgba(194, 163, 90, 0.1);
+$list-group-color: #b9b2a6;
+$list-group-hover-bg: #241e26;
+$list-group-action-hover-color: #efe7da;
+$list-group-action-active-bg: #2a2215;
+$list-group-action-active-color: #e0c878;
+
+$table-color: #b9b2a6;
+$table-bg: transparent;
+$table-border-color: rgba(194, 163, 90, 0.12);
+$table-striped-bg: rgba(255, 255, 255, 0.012);
+$table-hover-bg: rgba(194, 163, 90, 0.05);
+$table-hover-color: #efe7da;
+
+// --- Alerts using your lore palette instead of stock Bootstrap tones
+$primary-text-emphasis: #f0e6d8;
+$secondary-text-emphasis: #c6beaf;
+$success-text-emphasis: #d6e2ce;
+$info-text-emphasis: #d2e4ea;
+$warning-text-emphasis: #f3e3b2;
+$danger-text-emphasis: #e3c2c2;
+$light-text-emphasis: #4d4746;
+$dark-text-emphasis: #cfc7ba;
+
+$primary-bg-subtle: rgba(194, 163, 90, 0.14);
+$secondary-bg-subtle: rgba(26, 22, 29, 0.92);
+$success-bg-subtle: rgba(111, 140, 91, 0.14);
+$info-bg-subtle: rgba(111, 158, 174, 0.14);
+$warning-bg-subtle: rgba(194, 163, 90, 0.14);
+$danger-bg-subtle: rgba(156, 75, 75, 0.14);
+$light-bg-subtle: #1a161d;
+$dark-bg-subtle: #0b0a0d;
+
+$primary-border-subtle: rgba(194, 163, 90, 0.28);
+$secondary-border-subtle: rgba(194, 163, 90, 0.1);
+$success-border-subtle: rgba(111, 140, 91, 0.28);
+$info-border-subtle: rgba(111, 158, 174, 0.28);
+$warning-border-subtle: rgba(194, 163, 90, 0.28);
+$danger-border-subtle: rgba(156, 75, 75, 0.28);
+$light-border-subtle: rgba(194, 163, 90, 0.12);
+$dark-border-subtle: rgba(194, 163, 90, 0.12);
+
+// --- Optional: make Bootstrap's theme map explicit for NodeBB components
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+);
