@@ -1,7 +1,7 @@
 {
   "id": "nodebb-theme-westgate",
-  "name": "My Theme Name",
-  "description": "Enter a description here",
-  "url": "https://github.com/nodebb/nodebb-theme-westgate",
+  "name": "Westgate",
+  "description": "NodeBB theme for Shadows Over Westgate",
+  "url": "https://github.com/vickydotbat/nodebb-theme-westgate",
   "baseTheme": "nodebb-theme-harmony"
 }
