@@ -1,4 +1,8 @@
-// override harmony font-path
-$font-path: "./plugins/nodebb-theme-westgate";
-
 @import "../nodebb-theme-harmony/theme";
+@import "./scss/westgate/tokens";
+@import "./scss/westgate/surfaces";
+@import "./scss/westgate/categories";
+@import "./scss/westgate/topics";
+@import "./scss/westgate/posts";
+@import "./scss/westgate/controls";
+@import "./scss/westgate/responsive";

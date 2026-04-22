@@ -1,0 +1,320 @@
+.btn-primary {
+	--bs-btn-bg: #5a4a1a;
+	--bs-btn-border-color: #a8893f;
+	--bs-btn-color: #f0e6d8;
+	--bs-btn-hover-bg: #6a5720;
+	--bs-btn-hover-border-color: #c2a35a;
+	--bs-btn-hover-color: #fff4dd;
+	--bs-btn-active-bg: #493914;
+	--bs-btn-active-border-color: #c2a35a;
+	background-image: linear-gradient(to bottom, #5a4a1a 0%, #473914 100%);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.24);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+	background-image: linear-gradient(to bottom, #6a5720 0%, #53431a 100%);
+}
+
+.btn-secondary,
+.btn-ghost,
+.btn-outline-secondary {
+	--bs-btn-color: #d8cec0;
+	--bs-btn-bg: rgba(8, 7, 10, 0.12);
+	--bs-btn-border-color: rgba(216, 194, 138, 0.28);
+	--bs-btn-hover-color: var(--wg-text);
+	--bs-btn-hover-bg: rgba(194, 163, 90, 0.075);
+	--bs-btn-hover-border-color: rgba(216, 194, 138, 0.44);
+	--bs-btn-active-bg: rgba(194, 163, 90, 0.12);
+	--bs-btn-active-border-color: rgba(216, 194, 138, 0.5);
+	background-image: linear-gradient(to bottom, rgba(255, 244, 221, 0.018), rgba(0, 0, 0, 0.06));
+	box-shadow: inset 0 1px 0 rgba(255, 244, 221, 0.035);
+}
+
+.modal-footer .btn-secondary,
+.bootbox .modal-footer .btn-secondary,
+.modal-footer .btn[data-bs-dismiss="modal"],
+.modal-footer .btn[data-dismiss="modal"] {
+	--bs-btn-color: #d8cec0;
+	--bs-btn-bg: rgba(8, 7, 10, 0.16);
+	--bs-btn-border-color: rgba(216, 194, 138, 0.34);
+	--bs-btn-hover-color: #fff4dd;
+	--bs-btn-hover-bg: rgba(194, 163, 90, 0.09);
+	--bs-btn-hover-border-color: rgba(216, 194, 138, 0.52);
+	--bs-btn-active-bg: rgba(194, 163, 90, 0.13);
+	background-image: linear-gradient(to bottom, rgba(255, 244, 221, 0.024), rgba(0, 0, 0, 0.08));
+	box-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.04),
+		0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+.form-control,
+.form-select,
+.bootstrap-tagsinput,
+.composer textarea,
+.composer input,
+.composer .write,
+.composer .preview,
+.composer .CodeMirror,
+.composer .CodeMirror-scroll,
+.quick-reply,
+.quick-reply .card,
+.quick-reply .card-body,
+.quick-reply .quickreply-message,
+[component="topic/quickreply/container"],
+[component="topic/quickreply/container"] .card,
+[component="topic/quickreply/container"] .card-body {
+	background-color: rgba(18, 15, 22, 0.96) !important;
+	border-color: rgba(194, 163, 90, 0.18) !important;
+	color: var(--wg-text) !important;
+}
+
+.form-control:focus,
+.form-select:focus,
+.bootstrap-tagsinput:focus,
+.composer textarea:focus,
+.composer input:focus,
+.composer .CodeMirror-focused {
+	background-color: rgba(255, 255, 255, 0.04) !important;
+	border-color: rgba(194, 163, 90, 0.42) !important;
+	box-shadow: 0 0 0 0.18rem rgba(194, 163, 90, 0.12) !important;
+	color: var(--wg-text) !important;
+}
+
+.form-control::placeholder,
+.bootstrap-tagsinput::placeholder,
+.composer textarea::placeholder,
+.quick-reply textarea::placeholder,
+textarea[component="topic/quickreply/text"]::placeholder {
+	color: rgba(185, 178, 166, 0.62) !important;
+}
+
+.tool-modal {
+	background: transparent !important;
+	border-color: rgba(194, 163, 90, 0.16) !important;
+}
+
+.tool-modal .bootstrap-tagsinput {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.35rem;
+	min-height: 3rem;
+	padding: 0.45rem 0.55rem !important;
+	background:
+		linear-gradient(to bottom, transparent calc(100% - 1px), rgba(194, 163, 90, 0.055) calc(100% - 1px)),
+		rgba(12, 10, 15, 0.92) !important;
+	background-size: 100% 1.65rem, auto;
+	border-color: rgba(194, 163, 90, 0.28) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.035),
+		0 0 0 1px rgba(0, 0, 0, 0.28) !important;
+}
+
+.tool-modal .bootstrap-tagsinput .tag,
+.tool-modal .bootstrap-tagsinput .badge {
+	display: inline-flex;
+	align-items: center;
+	min-height: 1.35rem;
+	margin: 0 !important;
+	padding: 0.2rem 0.48rem !important;
+	background:
+		linear-gradient(to bottom, rgba(216, 194, 138, 0.13), rgba(70, 45, 52, 0.28)) !important;
+	border: 1px solid rgba(194, 163, 90, 0.3) !important;
+	border-radius: 3px !important;
+	color: #e5d6b5 !important;
+	font-family: var(--wg-font-ui);
+	font-size: 0.75rem;
+	line-height: 1.1;
+}
+
+.tool-modal .bootstrap-tagsinput .tag [data-role="remove"],
+.tool-modal .bootstrap-tagsinput .badge [data-role="remove"] {
+	color: rgba(230, 224, 214, 0.78);
+	margin-left: 0.32rem;
+}
+
+.tool-modal .bootstrap-tagsinput input {
+	flex: 1 1 15rem;
+	min-width: 13rem;
+	height: 1.6rem;
+	margin: 0;
+	color: var(--wg-text) !important;
+}
+
+.tool-modal .bootstrap-tagsinput .ui-autocomplete {
+	min-width: 14rem;
+	padding: 0.35rem;
+	background: linear-gradient(to bottom, rgba(23, 19, 28, 0.99), rgba(12, 10, 15, 0.99)) !important;
+	border: 1px solid rgba(194, 163, 90, 0.22) !important;
+	border-radius: 4px;
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.42);
+}
+
+.tool-modal .bootstrap-tagsinput .ui-menu-item,
+.tool-modal .bootstrap-tagsinput .ui-menu-item-wrapper {
+	color: var(--wg-text-soft);
+	font-family: var(--wg-font-ui);
+}
+
+.composer,
+.composer .composer-container,
+.composer .resizer,
+.composer .formatting-bar,
+.composer .title-container,
+.composer .tags-container,
+.composer .category-list-container,
+.composer .preview-container,
+.composer .write-container,
+.composer .imagedrop,
+[component="composer"],
+[component="composer"] .card,
+[component="composer"] .card-header,
+[component="composer"] .card-body {
+	background:
+		linear-gradient(to bottom, transparent calc(100% - 1px), rgba(194, 163, 90, 0.055) calc(100% - 1px)),
+		linear-gradient(100deg, rgba(32, 19, 30, 0.98), rgba(13, 12, 17, 0.98)) !important;
+	background-size: 100% 1.82rem, auto;
+	border-color: rgba(194, 163, 90, 0.18) !important;
+	color: var(--wg-text-soft) !important;
+}
+
+.composer .formatting-bar .btn,
+.composer .btn-toolbar .btn,
+[component="composer"] .btn,
+.quick-reply .btn,
+[component="topic/quickreply/container"] .btn {
+	color: var(--wg-text-soft) !important;
+	border-color: rgba(194, 163, 90, 0.12) !important;
+}
+
+.composer .formatting-bar .btn:hover,
+.composer .btn-toolbar .btn:hover,
+[component="composer"] .btn:hover,
+.quick-reply .btn:hover,
+[component="topic/quickreply/container"] .btn:hover {
+	background: rgba(194, 163, 90, 0.08) !important;
+	color: var(--wg-text) !important;
+}
+
+.modal-content,
+.modal-header,
+.modal-footer,
+.offcanvas,
+.offcanvas-header,
+.offcanvas-body {
+	background: linear-gradient(180deg, rgba(23, 19, 28, 0.98), rgba(13, 12, 17, 0.99)) !important;
+	border-color: rgba(194, 163, 90, 0.16) !important;
+	color: var(--wg-text-soft) !important;
+}
+
+.nav-tabs,
+.nav-pills,
+.list-group {
+	border-color: rgba(194, 163, 90, 0.12) !important;
+}
+
+.nav-tabs .nav-link,
+.nav-pills .nav-link,
+.list-group-item {
+	color: var(--wg-text-soft) !important;
+}
+
+.nav-tabs .nav-link.active,
+.nav-pills .nav-link.active,
+.list-group-item.active {
+	background: rgba(194, 163, 90, 0.12) !important;
+	border-color: rgba(194, 163, 90, 0.26) !important;
+	color: var(--wg-text) !important;
+}
+
+.dropdown-menu {
+	background: linear-gradient(to bottom, rgba(24, 20, 29, 0.98), rgba(17, 15, 21, 0.99)) !important;
+	border: 1px solid rgba(194, 163, 90, 0.16) !important;
+	border-radius: 8px;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.34);
+}
+
+.dropdown-item,
+.dropdown-menu .nav-link {
+	color: var(--wg-text-soft) !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-menu .nav-link:hover,
+.dropdown-menu .nav-link:focus {
+	background: rgba(194, 163, 90, 0.08) !important;
+	color: var(--wg-text) !important;
+}
+
+.badge {
+	border-radius: 4px;
+}
+
+.page-link {
+	background: rgba(255, 255, 255, 0.018);
+	border-color: rgba(194, 163, 90, 0.1);
+	color: var(--wg-text-soft);
+}
+
+.page-link:hover,
+.page-link:focus,
+.active > .page-link {
+	background: rgba(194, 163, 90, 0.12);
+	border-color: rgba(194, 163, 90, 0.25);
+	color: var(--wg-text);
+}
+
+.tooltip-inner {
+	background: #221c24 !important;
+	border: 1px solid rgba(194, 163, 90, 0.65) !important;
+	border-radius: 6px !important;
+	color: var(--wg-text) !important;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+.tooltip .tooltip-arrow {
+	display: none !important;
+}
+
+[component="sidebar/left"],
+[component="sidebar/right"],
+.bottombar-nav {
+	background: linear-gradient(180deg, rgba(20, 18, 25, 0.96), rgba(13, 12, 17, 0.98)) !important;
+	border-color: rgba(194, 163, 90, 0.12) !important;
+	color: var(--wg-text-soft) !important;
+}
+
+[component="sidebar/left"] .nav-link,
+[component="sidebar/right"] .nav-link,
+.bottombar-nav .nav-link {
+	color: var(--wg-text-soft) !important;
+	border-radius: 6px;
+}
+
+[component="sidebar/left"] .nav-link:hover,
+[component="sidebar/left"] .nav-link:focus,
+[component="sidebar/right"] .nav-link:hover,
+[component="sidebar/right"] .nav-link:focus,
+.bottombar-nav .nav-link:hover,
+.bottombar-nav .nav-link:focus {
+	background: rgba(194, 163, 90, 0.08);
+	color: var(--wg-text) !important;
+}
+
+[component="sidebar/right"] .text-secondary,
+[component="sidebar/right"] [data-widget-area="sidebar-footer"] {
+	color: var(--wg-text-muted) !important;
+}
+
+[component="navigation/count"],
+[component="unread/count"] {
+	background-color: var(--wg-red) !important;
+	color: #f2dddd;
+}
+
+:focus-visible {
+	outline: 2px solid var(--wg-focus) !important;
+	outline-offset: 2px;
+}

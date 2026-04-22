@@ -1,42 +1,75 @@
 // only overrides to bs5 variables here
 
+$font-path: "./plugins/nodebb-theme-westgate";
+
+$wg-ink: #0f0d12;
+$wg-ink-2: #141119;
+$wg-panel: #18141d;
+$wg-panel-2: #110f15;
+$wg-plum: #2a1222;
+$wg-plum-soft: #3a1830;
+$wg-gold: #c2a35a;
+$wg-gold-soft: #a8893f;
+$wg-text: #e6e0d6;
+$wg-text-soft: #b9b2a6;
+$wg-text-muted: #9a9086;
+$wg-red: #8e3438;
+
 // below are the default values from harmony theme overrides.scss file
 // feel free to change these for your custom theme
 
 // Harmony colours
-$white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black:    #000 !default;
+$white:    #f3ede4 !default;
+$gray-100: #e6e0d6 !default;
+$gray-200: #cfc5b7 !default;
+$gray-300: #b9b2a6 !default;
+$gray-400: #9a9086 !default;
+$gray-500: #7f756f !default;
+$gray-600: #625760 !default;
+$gray-700: #3a323c !default;
+$gray-800: #241f28 !default;
+$gray-900: #141119 !default;
+$black:    #09080b !default;
 
-$blue:    #0d6efd !default;
-$red:     #dc3545 !default;
-$yellow:  #ffc107 !default;
-$green:   #198754 !default;
-$cyan:    #0dcaf0 !default;
+$blue:    #8fb3c4 !default;
+$red:     $wg-red !default;
+$yellow:  $wg-gold !default;
+$green:   #789365 !default;
+$cyan:    #7cafc2 !default;
 
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
+$primary:       $wg-gold !default;
+$secondary:     $wg-text-muted !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-900 !default;
+$light:         $wg-text !default;
+$dark:          $wg-ink !default;
 
-$body-color: $gray-800 !default;
-$body-bg: $white !default;
-$body-tertiary-bg: $gray-200 !default;
-$text-muted: $gray-600 !default;
-$border-color: $gray-200 !default;
-$link-color: shade-color($blue, 20%) !default;
+$body-color: $wg-text-soft !default;
+$body-bg: $wg-ink !default;
+$body-tertiary-bg: $wg-panel !default;
+$text-muted: $wg-text-muted !default;
+$border-color: rgba($wg-gold, 0.14) !default;
+$link-color: $wg-gold !default;
+$link-hover-color: lighten($wg-gold, 9%) !default;
+
+$card-bg: $wg-panel !default;
+$card-cap-bg: $wg-panel-2 !default;
+$card-border-color: rgba($wg-gold, 0.12) !default;
+$dropdown-bg: #18141d !default;
+$dropdown-border-color: rgba($wg-gold, 0.16) !default;
+$dropdown-link-color: $wg-text-soft !default;
+$dropdown-link-hover-color: $wg-text !default;
+$dropdown-link-hover-bg: rgba($wg-gold, 0.08) !default;
+$input-bg: rgba($white, 0.025) !default;
+$input-color: $wg-text !default;
+$input-border-color: rgba($wg-gold, 0.18) !default;
+$input-focus-border-color: rgba($wg-gold, 0.42) !default;
+$input-placeholder-color: rgba($wg-text-soft, 0.62) !default;
+$btn-border-radius: 6px !default;
+$border-radius: 8px !default;
+$border-radius-sm: 6px !default;
 
 $btn-ghost-hover-color: mix($light, $dark, 90%);
 $btn-ghost-active-color: lighten($btn-ghost-hover-color, 5%);
@@ -64,13 +97,14 @@ $link-decoration: none;
 $link-hover-decoration: underline;
 
 // Custom fonts
-$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$font-family-secondary: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif: "Jost", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-secondary: "Cinzel", Georgia, "Times New Roman", serif !default;
+$font-family-monospace: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-weight-semibold: 500 !default;
 $small-font-size: 0.875rem !default;
 
 $breadcrumb-divider: quote("→");
-$breadcrumb-divider-color: $gray-500 !default;
+$breadcrumb-divider-color: $wg-gold-soft !default;
 $breadcrumb-active-color: $body-color !default;
 $breadcrumb-item-padding-x: 12px !default;
 

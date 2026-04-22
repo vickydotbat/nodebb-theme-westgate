@@ -1,0 +1,224 @@
+body.template-topic h1[component="post/header"] .topic-title {
+	color: var(--wg-text);
+	text-shadow: none;
+}
+
+body.template-topic .topic-info,
+body.template-topic [component="topic/stats"] {
+	color: var(--wg-text-muted);
+}
+
+body.template-topic .topic-info .badge,
+body.template-topic [component="topic/stats"] .badge {
+	background: rgba(8, 7, 10, 0.22) !important;
+	border-color: rgba(194, 163, 90, 0.16) !important;
+	color: var(--wg-ledger-ink-muted) !important;
+	font-family: var(--wg-font-ui);
+}
+
+ul[component="topic"].posts {
+	position: relative;
+}
+
+ul[component="topic"].posts::before {
+	content: "";
+	position: absolute;
+	top: 1.3rem;
+	bottom: 1.5rem;
+	left: 1.55rem;
+	width: 1px;
+	background: linear-gradient(to bottom, rgba(194, 163, 90, 0.18), rgba(194, 163, 90, 0.07));
+	pointer-events: none;
+}
+
+li[component="post"] {
+	color: var(--wg-text-soft);
+}
+
+li[component="post"] .post-container-parent > .bg-body {
+	background: var(--wg-bg) !important;
+	box-shadow: 0 0 0 5px var(--wg-bg), 0 0 0 6px rgba(194, 163, 90, 0.18) !important;
+}
+
+li[component="post"] .post-container {
+	position: relative;
+	padding: 1rem 1rem 0.85rem;
+	background:
+		linear-gradient(to bottom, transparent calc(100% - 1px), var(--wg-ledger-ruling) calc(100% - 1px)),
+		var(--wg-ledger-panel) !important;
+	background-size: 100% 1.82rem, auto;
+	border: 1px solid var(--wg-ledger-border) !important;
+	border-left: 2px solid rgba(194, 163, 90, 0.32) !important;
+	border-radius: 6px !important;
+	box-shadow: var(--wg-ledger-shadow) !important;
+}
+
+li[component="post"] .post-container::before {
+	content: "";
+	position: absolute;
+	top: 2.95rem;
+	right: 1rem;
+	left: 1rem;
+	height: 1px;
+	background: linear-gradient(to right, rgba(194, 163, 90, 0.16), rgba(194, 163, 90, 0.05), transparent);
+	pointer-events: none;
+}
+
+li[component="post"].topic-owner-post .post-container,
+li[component="post"].self-post .post-container {
+	border-left-color: rgba(194, 163, 90, 0.46) !important;
+}
+
+li[component="post"] .post-header {
+	min-height: 2rem;
+	padding-bottom: 0.45rem;
+	color: var(--wg-ledger-ink-muted);
+	font-family: var(--wg-font-ui);
+	font-size: 0.86rem;
+}
+
+li[component="post"] .post-header a.fw-bold {
+	color: var(--wg-ledger-ink) !important;
+	font-weight: 600 !important;
+}
+
+li[component="post"] .post-index {
+	color: var(--wg-ledger-ink-muted) !important;
+	font-family: var(--wg-font-code);
+	font-size: 0.78rem;
+	font-variant-numeric: tabular-nums;
+}
+
+li[component="post"] .content,
+li[component="post"] .content p,
+li[component="post"] .content li,
+li[component="post"] .content blockquote,
+.topic-text,
+.post-content {
+	color: var(--wg-text-soft);
+	line-height: 1.68;
+}
+
+li[component="post"] .content {
+	padding-top: 0.35rem;
+}
+
+li[component="post"] .content h1,
+li[component="post"] .content h2,
+li[component="post"] .content h3,
+li[component="post"] .content h4 {
+	color: var(--wg-text);
+	font-family: var(--wg-font-display);
+	text-shadow: none;
+}
+
+li[component="post"] .content blockquote {
+	background: rgba(35, 27, 23, 0.36);
+	border-left: 3px solid rgba(194, 163, 90, 0.4);
+	padding: 0.75rem 1rem;
+}
+
+li[component="post"] .post-footer {
+	border-bottom: 0 !important;
+	border-top: 1px solid rgba(194, 163, 90, 0.095);
+	padding-top: 0.55rem;
+}
+
+li[component="post"] [component="post/actions"] .btn,
+li[component="post"] [component="post/reply-count"] {
+	color: var(--wg-text-muted) !important;
+	border-color: rgba(194, 163, 90, 0.1) !important;
+}
+
+li[component="post"] [component="post/actions"] .btn:hover,
+li[component="post"] [component="post/reply-count"]:hover {
+	color: var(--wg-text) !important;
+	background: rgba(194, 163, 90, 0.08) !important;
+	border-color: rgba(194, 163, 90, 0.2) !important;
+}
+
+.topic-sidebar-tools .btn,
+[component="topic/navigator"] {
+	background: rgba(255, 255, 255, 0.018) !important;
+	border-color: rgba(194, 163, 90, 0.1) !important;
+	color: var(--wg-text-soft) !important;
+}
+
+[component="topic/navigator"] .pagination-text,
+[component="topic/navigator"] .scroller-content,
+.topic-sidebar-tools,
+.topic-sidebar-tools .btn {
+	font-family: var(--wg-font-ui);
+}
+
+[component="topic/navigator"] .scroller-thumb-icon {
+	background: var(--wg-ledger-ink) !important;
+}
+
+.pagination-block {
+	background:
+		linear-gradient(to bottom, transparent calc(100% - 1px), rgba(194, 163, 90, 0.08) calc(100% - 1px)),
+		rgba(18, 15, 22, 0.96) !important;
+	background-size: 100% 1.55rem, auto;
+	border-color: var(--wg-ledger-border) !important;
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32) !important;
+	color: var(--wg-ledger-ink) !important;
+	font-family: var(--wg-font-ui);
+}
+
+.pagination-block.text-bg-light {
+	color: var(--wg-ledger-ink) !important;
+}
+
+.pagination-block a,
+.pagination-block .btn,
+.pagination-block i {
+	color: var(--wg-ledger-ink) !important;
+}
+
+.pagination-block .pagination-text {
+	color: var(--wg-text) !important;
+	font-family: var(--wg-font-display);
+	font-size: 0.82rem;
+	letter-spacing: 0.02em;
+}
+
+body.template-topic .sticky-top hr {
+	border-color: rgba(194, 163, 90, 0.12);
+}
+
+textarea[component="topic/quickreply/text"],
+.quick-reply textarea {
+	color: var(--wg-text) !important;
+	background:
+		linear-gradient(to bottom, transparent calc(100% - 1px), var(--wg-ledger-ruling) calc(100% - 1px)),
+		rgba(18, 15, 22, 0.92) !important;
+	background-size: 100% 1.82rem, auto;
+	border-color: var(--wg-ledger-border) !important;
+}
+
+.quick-reply,
+[component="topic/quickreply/container"] {
+	background: transparent !important;
+}
+
+.quick-reply .card,
+[component="topic/quickreply/container"] .card,
+.quick-reply .card-body,
+[component="topic/quickreply/container"] .card-body {
+	background:
+		linear-gradient(to bottom, transparent calc(100% - 1px), rgba(194, 163, 90, 0.05) calc(100% - 1px)),
+		var(--wg-ledger-panel) !important;
+	background-size: 100% 1.82rem, auto;
+	border-color: var(--wg-ledger-border) !important;
+	box-shadow: var(--wg-ledger-shadow) !important;
+	color: var(--wg-text-soft) !important;
+}
+
+.quick-reply .card-header,
+[component="topic/quickreply/container"] .card-header {
+	background: rgba(8, 7, 10, 0.22) !important;
+	border-color: rgba(194, 163, 90, 0.12) !important;
+	color: var(--wg-ledger-ink-muted) !important;
+	font-family: var(--wg-font-ui);
+}

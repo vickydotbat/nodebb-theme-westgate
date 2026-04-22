@@ -29,7 +29,11 @@
       "git add"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "@fontsource/cinzel": "^5.2.8",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
+    "@fontsource/jost": "^5.2.8"
+  },
   "devDependencies": {
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-angular": "11.0.0",

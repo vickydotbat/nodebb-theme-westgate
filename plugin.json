@@ -17,7 +17,8 @@
     "../client/account/theme.js": "../nodebb-theme-harmony/public/settings.js"
   },
   "staticDirs": {
-    "inter": "node_modules/@fontsource/inter/files",
-    "poppins": "node_modules/@fontsource/poppins/files"
+    "cinzel": "node_modules/@fontsource/cinzel/files",
+    "jost": "node_modules/@fontsource/jost/files",
+    "ibm-plex-mono": "node_modules/@fontsource/ibm-plex-mono/files"
   }
 }
