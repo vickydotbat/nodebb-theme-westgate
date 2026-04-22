@@ -169,6 +169,12 @@ li[component="categories/category"] .post-content {
 	color: var(--wg-text-muted) !important;
 }
 
+li[component="categories/category"] .meta.stats .text-xs,
+li[component="categories/category"] .meta.stats .text-muted {
+	font-family: var(--wg-font-ui);
+	font-weight: 600;
+}
+
 li[component="categories/category"] .lastpost {
 	border-left-color: rgba(194, 163, 90, 0.36) !important;
 }

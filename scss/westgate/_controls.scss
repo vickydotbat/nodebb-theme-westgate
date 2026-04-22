@@ -69,6 +69,16 @@
 	color: var(--wg-text) !important;
 }
 
+.quick-reply .card,
+[component="topic/quickreply/container"] .card {
+	box-shadow: var(--wg-ledger-shadow) !important;
+}
+
+.quick-reply .card-body,
+[component="topic/quickreply/container"] .card-body {
+	box-shadow: none !important;
+}
+
 .form-control:focus,
 .form-select:focus,
 .bootstrap-tagsinput:focus,
@@ -76,8 +86,10 @@
 .composer input:focus,
 .composer .CodeMirror-focused {
 	background-color: rgba(255, 255, 255, 0.04) !important;
-	border-color: rgba(194, 163, 90, 0.42) !important;
-	box-shadow: 0 0 0 0.18rem rgba(194, 163, 90, 0.12) !important;
+	border-color: rgba(194, 163, 90, 0.5) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.026),
+		0 0 0 1px rgba(194, 163, 90, 0.28) !important;
 	color: var(--wg-text) !important;
 }
 
@@ -177,6 +189,48 @@ textarea[component="topic/quickreply/text"]::placeholder {
 	background-size: 100% 1.82rem, auto;
 	border-color: rgba(194, 163, 90, 0.18) !important;
 	color: var(--wg-text-soft) !important;
+}
+
+.composer .write-container,
+.composer .preview-container {
+	overflow: hidden;
+	border-radius: 8px !important;
+	box-shadow: none !important;
+}
+
+.composer .write,
+.composer .preview,
+.composer .CodeMirror,
+.composer .CodeMirror-scroll,
+[component="composer"] .card-body {
+	border-radius: inherit !important;
+	box-shadow: none !important;
+}
+
+.composer .write:focus,
+.composer .preview:focus,
+.composer .CodeMirror-focused {
+	border-radius: 8px !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.026),
+		0 0 0 1px rgba(194, 163, 90, 0.28) !important;
+}
+
+.composer .title-container {
+	border-radius: 8px !important;
+	box-shadow: none !important;
+}
+
+.composer .title-container input,
+.composer .title-container .form-control {
+	border-radius: inherit !important;
+	box-shadow: none !important;
+}
+
+.composer .title-container input:focus,
+.composer .title-container .form-control:focus {
+	border-color: rgba(194, 163, 90, 0.5) !important;
+	box-shadow: none !important;
 }
 
 .composer .formatting-bar .btn,

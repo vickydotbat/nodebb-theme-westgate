@@ -98,15 +98,7 @@ Statuses:
 
 Complete the following:
 
-- [ ] Mesh the look of topic counters (votes|posts|views) with the counters on categories/subcategories (topics|posts)
-- [?] Are "locked", "pinned", "tag", and "time since posted" elements using chosen our custom fonts? They look off somehow; pinned/locked look is nice, but maybe try our UI font but bolded for all those elements.
-- [ ] Tags on topics lost their icons
-- [ ] Quick Reply:
-  - [ ] Double glow around boxes is too much; one surrounding layer should be sufficient
-- [ ] New Topic Composer:
-  - [ ] Left side active box glow not rounded on the left top and bottom corners
-  - [ ] Left side active box not rounded on the right top and bottom corners (independent of glow)
-  - [ ] Right side double-glow (see Quick Reply) needs toning down/removal
+- [x] Make a pass through widgets so they match the theme aesthetic. Ensure compatibility is preserved for different container types (card, alert, etc) and style those elements accordingly in a fitting way.
 
 ## Future Tasks
 

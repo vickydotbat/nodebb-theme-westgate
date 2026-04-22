@@ -273,9 +273,19 @@ a[component="topic/category"] {
 	text-decoration: none !important;
 }
 
+li[component="category/topic"] [component="topic/labels"],
+li[component="category/topic"] [component="topic/tags"],
+li[component="category/topic"] .timeago,
+li[component="category/topic"] .permalink {
+	font-family: var(--wg-font-ui);
+	font-weight: 600;
+	letter-spacing: 0;
+}
+
 li[component="category/topic"] [component="topic/labels"] .badge {
 	letter-spacing: 0.015em;
 	text-transform: uppercase;
+	font-weight: 600 !important;
 }
 
 li[component="category/topic"] [component="topic/labels"] .badge i {
@@ -319,8 +329,17 @@ li[component="category/topic"] .tag-item,
 	letter-spacing: 0;
 	line-height: 1.15;
 	min-height: 1.38rem;
-	padding: 0.22rem 0.48rem;
+	gap: 0.28rem;
+	padding: 0.22rem 0.48rem 0.22rem 0.42rem;
 	text-transform: none;
+}
+
+li[component="category/topic"] .tag i,
+li[component="category/topic"] .tag-item i,
+.tag-list .tag i {
+	color: #d8c28a;
+	font-size: 0.68rem;
+	opacity: 0.88;
 }
 
 li[component="category/topic"] [component="topic/tags"] a {
@@ -358,19 +377,16 @@ li[component="category/topic"] [component="topic/select"]:focus {
 
 li[component="category/topic"] .meta.stats > div {
 	min-height: 3.25rem;
-	background: rgba(8, 7, 10, 0.18) !important;
-	border: 0 !important;
-	border-inline-start: 1px solid rgba(194, 163, 90, 0.12) !important;
-	border-radius: 0 !important;
-	box-shadow: none !important;
+	background: rgba(255, 255, 255, 0.018) !important;
+	border: 1px solid rgba(194, 163, 90, 0.09) !important;
+	border-radius: 3px !important;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02) !important;
 }
 
 li[component="category/topic"] .meta.stats .fs-5,
 li[component="category/topic"] .meta.stats .ff-secondary {
 	color: var(--wg-text) !important;
-	font-family: var(--wg-font-code);
 	font-size: 1.1rem !important;
-	font-variant-numeric: tabular-nums;
 }
 
 li[component="category/topic"] .meta.stats .text-xs,
@@ -383,6 +399,7 @@ li[component="category/topic"] [component="topic/teaser"] .post-content {
 li[component="category/topic"] .meta.stats .text-xs,
 li[component="category/topic"] .meta.stats .text-muted {
 	font-family: var(--wg-font-ui);
+	font-weight: 600;
 }
 
 li[component="category/topic"] [component="topic/teaser"] .lastpost {
