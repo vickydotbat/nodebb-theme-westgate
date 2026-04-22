@@ -84,3 +84,32 @@ Use the local NodeBB workflow when practical:
 - Playwright browser validation is available in this environment after asset rebuilds; use it for rendered route checks and desktop/mobile screenshots against `http://localhost:4567`.
 
 If validation cannot be run, report what was changed and what still needs to be checked in the running forum.
+
+## Current Tasks
+
+Complete and update as needed. Future-dated tasks and possibilities go into Future Tasks.
+
+Statuses:
+
+1. [x] marks total completion.
+2. [-] marks partial completion: not exact specification.
+3. [ ] marks incomplete.
+4. [?] marks uncertainty or exception: treat as incomplete, expand as needed, and keep in scope.
+
+Complete the following:
+
+- [ ] Mesh the look of topic counters (votes|posts|views) with the counters on categories/subcategories (topics|posts)
+- [?] Are "locked", "pinned", "tag", and "time since posted" elements using chosen our custom fonts? They look off somehow; pinned/locked look is nice, but maybe try our UI font but bolded for all those elements.
+- [ ] Tags on topics lost their icons
+- [ ] Quick Reply:
+  - [ ] Double glow around boxes is too much; one surrounding layer should be sufficient
+- [ ] New Topic Composer:
+  - [ ] Left side active box glow not rounded on the left top and bottom corners
+  - [ ] Left side active box not rounded on the right top and bottom corners (independent of glow)
+  - [ ] Right side double-glow (see Quick Reply) needs toning down/removal
+
+## Future Tasks
+
+Tasks to be considered in the future, not implemented immediately. Keep them in scope when making decisions.
+
+- [ ] Consider a light mode/dark mode toggle while retaining core theme, preferably without adding a Skin
