@@ -83,18 +83,6 @@ li[component="category/topic"]:not(.unread) .user-icon {
 	opacity: 0.78;
 }
 
-li[component="category/topic"]::before {
-	content: "";
-	position: absolute;
-	top: 0.85rem;
-	bottom: 0.85rem;
-	left: 4.55rem;
-	width: 1px;
-	background: linear-gradient(to bottom, transparent, var(--wg-ledger-rule-strong), transparent);
-	pointer-events: none;
-	opacity: 0.65;
-}
-
 li[component="category/topic"]::after {
 	content: "";
 	position: absolute;

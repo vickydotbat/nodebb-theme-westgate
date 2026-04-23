@@ -69,6 +69,65 @@
 	color: var(--wg-text) !important;
 }
 
+.form-select {
+	padding-right: 2rem;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10'%3e%3cpath d='M2 2.5 7 7.5l5-5' fill='none' stroke='%23c2a35a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e") !important;
+	background-position: right 0.65rem center !important;
+	background-repeat: no-repeat !important;
+	background-size: 0.75rem 0.55rem !important;
+}
+
+.form-control[type="number"],
+input[type="number"].form-control {
+	appearance: textfield;
+	-moz-appearance: textfield;
+	padding-right: 0.65rem;
+	color-scheme: dark;
+}
+
+.form-control[type="number"]::-webkit-inner-spin-button,
+.form-control[type="number"]::-webkit-outer-spin-button,
+input[type="number"].form-control::-webkit-inner-spin-button,
+input[type="number"].form-control::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.form-switch .form-check-input,
+.form-check-input[role="switch"] {
+	background-color: rgba(255, 244, 221, 0.08) !important;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23d8c28a'/%3e%3c/svg%3e") !important;
+	border-color: rgba(216, 194, 138, 0.26) !important;
+	box-shadow:
+		inset 0 1px 2px rgba(0, 0, 0, 0.48),
+		0 0 0 1px rgba(8, 7, 10, 0.46) !important;
+	cursor: pointer;
+}
+
+.form-switch .form-check-input:hover,
+.form-check-input[role="switch"]:hover {
+	background-color: rgba(255, 244, 221, 0.12) !important;
+	border-color: rgba(216, 194, 138, 0.38) !important;
+}
+
+.form-switch .form-check-input:checked,
+.form-check-input[role="switch"]:checked {
+	background-color: var(--wg-gold) !important;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2309080b'/%3e%3c/svg%3e") !important;
+	border-color: rgba(246, 223, 163, 0.58) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.2),
+		0 0 0 1px rgba(66, 48, 16, 0.5) !important;
+}
+
+.form-switch .form-check-input:focus,
+.form-check-input[role="switch"]:focus {
+	border-color: rgba(216, 194, 138, 0.5) !important;
+	box-shadow:
+		inset 0 1px 2px rgba(0, 0, 0, 0.42),
+		0 0 0 1px rgba(194, 163, 90, 0.3) !important;
+}
+
 .quick-reply .card,
 [component="topic/quickreply/container"] .card {
 	box-shadow: var(--wg-ledger-shadow) !important;
@@ -93,12 +152,62 @@
 	color: var(--wg-text) !important;
 }
 
+input[type="password"].form-control,
+.form-control[type="password"] {
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+	font-size: 1.05rem;
+	letter-spacing: 0.08em;
+}
+
 .form-control::placeholder,
 .bootstrap-tagsinput::placeholder,
 .composer textarea::placeholder,
 .quick-reply textarea::placeholder,
 textarea[component="topic/quickreply/text"]::placeholder {
 	color: rgba(185, 178, 166, 0.62) !important;
+}
+
+table[component="notification/table"] {
+	--bs-table-bg: transparent;
+	--bs-table-color: var(--wg-text-soft);
+	--bs-table-border-color: rgba(194, 163, 90, 0.1);
+	--bs-table-hover-bg: rgba(194, 163, 90, 0.04);
+	--bs-table-hover-color: var(--wg-text);
+	color: var(--wg-text-soft) !important;
+}
+
+table[component="notification/table"] :where(th, td, label) {
+	color: var(--wg-text-soft) !important;
+}
+
+table[component="notification/table"] thead :where(th, td) {
+	color: var(--wg-ledger-ink-muted) !important;
+	font-family: var(--wg-font-display);
+	font-size: 0.86rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+table[component="notification/table"] tbody tr {
+	border-color: rgba(194, 163, 90, 0.1) !important;
+}
+
+table[component="notification/table"] a[data-type] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.9rem;
+	min-height: 1.9rem;
+	border-radius: 999px;
+	color: var(--wg-text-muted);
+	text-decoration: none;
+	transition: background-color 140ms ease, color 140ms ease;
+}
+
+table[component="notification/table"] a[data-type]:hover,
+table[component="notification/table"] a[data-type]:focus {
+	background-color: rgba(194, 163, 90, 0.075);
+	color: var(--wg-text);
 }
 
 .tool-modal {

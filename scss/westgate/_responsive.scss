@@ -8,18 +8,10 @@
 		padding-left: 0;
 	}
 
-	ul.categories-list::before {
-		content: none;
-	}
-
 	li[component="categories/category"],
 	li[component="category/topic"],
 	li[component="post"] .post-container {
 		padding: 0.85rem !important;
-	}
-
-	li[component="categories/category"]::before {
-		content: none;
 	}
 
 	li[component="categories/category"] h2.title {

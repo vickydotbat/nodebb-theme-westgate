@@ -192,6 +192,37 @@
 	font-family: var(--wg-font-ui);
 }
 
+[data-widget-area="footer"] > .row:has(> a.btn[href*="/user/"]) {
+	--bs-gutter-x: 0.45rem;
+	--bs-gutter-y: 0.45rem;
+	width: 100%;
+	margin: 0 0 0.85rem;
+	padding: 0.6rem;
+	background:
+		linear-gradient(to bottom, rgba(255, 241, 196, 0.018), rgba(8, 7, 10, 0.08)),
+		var(--wg-velvet-panel) !important;
+	border: 1px solid rgba(194, 163, 90, 0.14);
+	border-radius: 8px;
+	box-shadow: var(--wg-velvet-shadow);
+}
+
+[data-widget-area] :where(.row, .card-body):has(> a.btn[href*="/user/"]) > a.btn {
+	background: transparent !important;
+	background-image: none !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	color: var(--wg-text-soft) !important;
+	min-width: 0;
+}
+
+[data-widget-area] :where(.row, .card-body):has(> a.btn[href*="/user/"]) > a.btn:hover,
+[data-widget-area] :where(.row, .card-body):has(> a.btn[href*="/user/"]) > a.btn:focus {
+	background: rgba(194, 163, 90, 0.06) !important;
+	background-image: none !important;
+	color: var(--wg-text) !important;
+	text-decoration: none;
+}
+
 [data-widget-area="sidebar"] .card,
 [data-widget-area="sidebar"] .alert,
 [data-widget-area="sidebar"] > :where(div, section, aside):not(:empty):not(.hidden):not(.row):not([data-widget-area]):not(.card):not(.alert):not(.list-group),
