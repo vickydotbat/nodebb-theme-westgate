@@ -94,14 +94,13 @@ Statuses:
 
 Complete the following:
 
-- [x] Remove the lines on the left side of the categories page underneath the categories this also exists for subcategories on the "category" page.
+- [x] The containers around subcategory sections look weak. Change the container border radius to match that of the icon's, but make it +4 (see image)
 
 ## Future Tasks
 
 Tasks to be considered in the future, not implemented immediately. Keep them in scope when making decisions.
 
 - [x] Draft a design for icons and avatars to look a little more "ornate", like literal signet rings, maybe with some subtle dark steel or faded gold bordering. Implemented with layered dark steel/faded gold borders and restrained inset highlights for category icons, child category icons, avatars, and user initials. `./nodebb build` passes; local browser validation was blocked because `localhost:4567` was not running.
-
 - [ ] Consider a light mode/dark mode toggle while retaining core theme, preferably without adding a Skin
 - [ ] Un-bold "topics" and "posts" and make the color lines replace the black line drived from category background color to either use the foreground color of the icon, or an ornate gilding like the icons (image 2)
 - [ ] Consider making the category names a bit smoother; it looks like it's not anti-aliased. (image 3)
