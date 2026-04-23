@@ -41,30 +41,59 @@ li[component="categories/category"] .icon {
 		0 0 8px rgba(0, 0, 0, 0.22);
 }
 
+body.template-category .category-header .icon {
+	border: 1px solid rgba(246, 223, 163, 0.34);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 242, 204, 0.28),
+		inset 0 0 0 1px rgba(18, 15, 22, 0.62),
+		inset 0 -3px 7px rgba(0, 0, 0, 0.52),
+		0 0 0 1px rgba(56, 48, 42, 0.9),
+		0 0 0 2px rgba(124, 105, 62, 0.24),
+		0 9px 18px rgba(0, 0, 0, 0.32);
+}
+
 $wg-game-icon-path: "./plugins/nodebb-theme-westgate/game-icons/";
 $wg-game-icons: (
+	scroll-unfurled: "scroll-unfurled.svg",
 	scroll-quill: "scroll-quill.svg",
 	rule-book: "rule-book.svg",
+	trumpet-flag: "trumpet-flag.svg",
 	ringing-bell: "ringing-bell.svg",
 	spinning-wheel: "spinning-wheel.svg",
 	tavern-sign: "tavern-sign.svg",
+	beer-stein: "beer-stein.svg",
 	saloon: "saloon.svg",
 	shaking-hands: "shaking-hands.svg",
+	wood-frame: "wood-frame.svg",
 	large-paint-brush: "large-paint-brush.svg",
+	harp: "harp.svg",
 	flute: "flute.svg",
+	duality-mask: "duality-mask.svg",
 	drama-masks: "drama-masks.svg",
+	stabbed-note: "stabbed-note.svg",
 	target-poster: "target-poster.svg",
+	mute: "mute.svg",
 	chat-bubble: "chat-bubble.svg",
+	sword-altar: "sword-altar.svg",
 	notebook: "notebook.svg",
+	cowled: "cowled.svg",
 	wax-seal: "wax-seal.svg",
+	candle-flame: "candle-flame.svg",
 	glowing-hands: "glowing-hands.svg",
+	key-lock: "key-lock.svg",
 	question: "question.svg",
+	round-potion: "round-potion.svg",
 	monkey-wrench: "monkey-wrench.svg",
 	long-antennae-bug: "long-antennae-bug.svg",
+	envelope: "envelope.svg",
 	idea: "idea.svg",
+	anvil: "anvil.svg",
 	gears: "gears.svg",
+	spanner: "spanner.svg",
 	toolbox: "toolbox.svg",
 	compass: "compass.svg",
+	wax-tablet: "wax-tablet.svg",
+	classical-knowledge: "classical-knowledge.svg",
 	open-book: "open-book.svg",
 	pencil-ruler: "pencil-ruler.svg",
 	processor: "processor.svg",
@@ -95,7 +124,7 @@ li[component="categories/category"][class*="wg-icon-"] > .d-flex > .flex-shrink-
 .category-children-item[class*="wg-icon-"] > .westgate-category-child > .icon::before {
 	content: "";
 	position: absolute;
-	inset: 22%;
+	inset: 13%;
 	background: currentColor;
 	filter:
 		drop-shadow(0 1px 0 rgba(0, 0, 0, 0.72))
@@ -104,6 +133,14 @@ li[component="categories/category"][class*="wg-icon-"] > .d-flex > .flex-shrink-
 	mask-repeat: no-repeat;
 	mask-size: contain;
 	pointer-events: none;
+}
+
+.westgate-category-header-icon[class*="wg-icon-"] > .icon::before {
+	inset: 11%;
+}
+
+.category-children-item[class*="wg-icon-"] > .westgate-category-child > .icon::before {
+	inset: 16%;
 }
 
 @each $name, $file in $wg-game-icons {
@@ -153,9 +190,10 @@ ul.category-children {
 .westgate-category-child {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.35rem;
+	gap: 0.5rem;
 	max-width: 100%;
-	padding: 0.2rem 0.55rem;
+	min-height: 2.1rem;
+	padding: 0.25rem 0.65rem 0.25rem 0.3rem;
 	background: rgba(44, 22, 34, 0.3);
 	border: 1px solid rgba(194, 163, 90, 0.11);
 	border-radius: 8px;
@@ -165,9 +203,9 @@ ul.category-children {
 .westgate-category-child .icon,
 .westgate-child-icon,
 .category-children-item i.fa-caret-right {
-	width: 18px !important;
-	height: 18px !important;
-	min-width: 18px;
+	width: 27px !important;
+	height: 27px !important;
+	min-width: 27px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -181,8 +219,8 @@ ul.category-children {
 		0 0 0 1px rgba(31, 25, 24, 0.72),
 		0 0 0 2px rgba(124, 105, 62, 0.18);
 	filter: saturate(0.8) contrast(1.12);
-	font-size: 0.7rem !important;
-	line-height: 18px !important;
+	font-size: 0.82rem !important;
+	line-height: 27px !important;
 }
 
 .category-children-item i.fa-caret-right {

@@ -109,8 +109,35 @@ Complete the following:
     - [x] Define the exact ACP custom classes to enter for each category/subcategory, based on `GAME_ICONS.md`, so setup can happen without theme code knowing category IDs.
     - [x] Document setup steps for admins: where to enter the custom class, which class names map to which icons, and when to rebuild/restart NodeBB after theme changes.
     - [x] Validate implementation scaffolding: `./nodebb build` succeeds, compiled templates emit `{./class}`, compiled CSS contains the `wg-icon-*` mask rules, and `/assets/plugins/nodebb-theme-westgate/game-icons/drama-masks.svg` returns HTTP 200.
-    - [ ] Enter the `wg-icon-*` values from `GAME_ICONS.md` into the live ACP category custom class fields. The current live data still contains legacy layout classes like `col-md-3 col-6`; keep them only if they are still intentionally used for layout, and append the `wg-icon-*` class alongside them.
-    - [ ] Validate actual game-icon visuals on the live website after ACP class entry: desktop and mobile `/categories`, one category page with subcategories, "load more subcategories" if present, and at least one category with no game-icon class to confirm Font Awesome fallback still works.
+    - [x] Enter the `wg-icon-*` values from `GAME_ICONS.md` into the live ACP category custom class fields. The current live data still contains legacy layout classes like `col-md-3 col-6`; keep them only if they are still intentionally used for layout, and append the `wg-icon-*` class alongside them.
+      - [x] Removed `col-md-3 col-6` legacy layout classes.
+    - [-] Validate actual game-icon visuals on the live website after ACP class entry: desktop and mobile `/categories`, one category page with subcategories, "load more subcategories" if present, and at least one category with no game-icon class to confirm Font Awesome fallback still works.
+      - [ ] Icons don't fit into their containers: either too small or cropped wrong. Especially noticeable when viewing `category` page
+      - [ ] Missing "signet ring" style ornamentation namely on `category` page (above topic or subcategory list)
+      - [ ] Subcategory containers no longer tidy; maybe subcategory icon and container should be bigger (1.5x current size) on the `categories` page with text remaining the same size.
+      - [ ] Some icons need to be changed. When adding new icons, add new classes for them, and deprecate unused ones:
+        - [ ] INFORMATION: `scroll-unfurled`
+          - [ ] Announcements: `trumpet-flag`
+          - [ ] Player Guide: `compass`
+        - [ ] COMMUNITY
+          - [ ] General Discussion:`beer-stein`
+          - [ ] Screenshots: `wood-frame`
+          - [ ] Creations: `harp`
+        - [ ] ROLEPLAY: `duality-mask`
+          - [ ] Notices: `stabbed-note`
+          - [ ] Rumors & Gossip: `mute`
+          - [ ] Journals & Biographies: `sword-altar`
+          - [ ] Factions & Guilds: `cowled`
+            - [ ] Keep `wax-seal` for "Organization Registry" (subcategory of Factions & Guilds)
+        - [ ] SUPPORT: `candle-flame`
+          - [ ] Common Issues & Questions: `key-lock`
+          - [ ] Feedback: `envelope`
+          - [ ] Technical Help:`round-potion`
+        - [ ] DEVELOPMENT: `anvil`
+          - [ ] Tools & References: `spanner`
+          - [ ] Programming: `gears`
+          - [ ] General: `wax-tablet`
+          - [ ] Lore: `classical-knowledge`
     - [ ] Decide whether uploaded category background images should be cleared for icon-driven categories after seeing the final ACP-configured visuals.
     - [ ] Explain any operational follow-up after ACP setup, especially asset rebuild, restart/cache behavior, and whether legacy Bootstrap layout classes should remain in category custom class fields.
 
