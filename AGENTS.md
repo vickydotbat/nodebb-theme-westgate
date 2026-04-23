@@ -98,10 +98,15 @@ Statuses:
 
 Complete the following:
 
-- [x] Make a pass through widgets so they match the theme aesthetic. Ensure compatibility is preserved for different container types (card, alert, etc) and style those elements accordingly in a fitting way.
+- [ ] Draft a design for icons and avatars to look a little more "ornate", like literal signet rings, maybe with some subtle dark steel or faded gold bordering.
 
 ## Future Tasks
 
 Tasks to be considered in the future, not implemented immediately. Keep them in scope when making decisions.
 
 - [ ] Consider a light mode/dark mode toggle while retaining core theme, preferably without adding a Skin
+
+- [ ] Remove the lines on the left side of the categories page underneath the categories this also exists for subcategories on the "category" page.
+- [ ] Un-bold "topics" and "posts" and make the color lines replace the black line drived from category background color to either use the foreground color of the icon, or an ornate gilding like the icons (image 2)
+- [ ] Consider making the category names a bit smoother; it looks like it's not anti-aliased. (image 3)
+- [ ] Mobile website doesn't use the correct fonts.
