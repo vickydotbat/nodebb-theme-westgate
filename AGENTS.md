@@ -94,13 +94,67 @@ Statuses:
 
 Complete the following:
 
-- [x] The containers around subcategory sections look weak. Change the container border radius to match that of the icon's, but make it +4 (see image)
+- [-] Implement curated game-icons support for category/subcategory icons: sanitize selected SVGs into mask-friendly theme assets, expose them through `staticDirs`, add reusable `wg-icon-*` CSS mask classes, and include category custom classes in the local category/subcategory templates if Harmony data supports them.
+  - [x] Phase 1: Build our icon stack.
+    - [x] Recommend icons from the game-icons pack for forum categories and their subcategories. See `GAME_ICONS.md`.
+    - [x] Include the `.svg`/`.png` files in the theme if possible. SVG assets are in `public/game-icons/`.
+    - [x] Author any necessary credits in a `.md` file at the root of the `nodebb-theme-westgate` repository. See `GAME_ICONS.md`.
+  - [ ] Phase 2: Implementation.
+    - [ ] Confirm category `class` data is present on all required render paths: `/categories`, category-page subcategory rows, category-page header, and AJAX-loaded "more subcategories" rows. Initial assessment: NodeBB stores and escapes `category.class`, and `getCategoryData`/`getCategoriesData` include it, but local templates currently do not emit it.
+    - [ ] Add ACP custom class output to local category templates. At minimum, add `{./class}` to root category rows and child/subcategory row wrappers so classes like `wg-icon-scroll-quill` can control icons without hardcoding category IDs.
+    - [ ] Add a minimal local `templates/category.tpl` override, copied from Harmony only as needed, so the category page header can expose `{./class}` around its `buildCategoryIcon(...)` output.
+    - [ ] Decide whether `templates/partials/categories/children.tpl` should remain a separate source of truth or whether the duplicated child markup inside `templates/partials/categories/item.tpl` should be collapsed back to the imported partial before adding icon classes.
+    - [ ] Implement the `wg-icon-*` CSS mask classes in a focused SCSS file or the existing category SCSS layer. Use `public/game-icons/*.svg` through the theme static path, hide/neutralize the Font Awesome `<i>` only for `wg-icon-*` classes, and render the game-icon mask via `::before` using `currentColor`.
+    - [ ] Preserve the existing ornate icon frame treatment: category ACP `bgColor`/`color` should still tint the icon frame/glyph where possible, with fallback faded-gold/dark-steel styling if ACP colors are too bright.
+    - [ ] Define the exact ACP custom classes to enter for each category/subcategory, based on `GAME_ICONS.md`, so setup can happen without theme code knowing category IDs.
+    - [ ] Document setup steps for admins: where to enter the custom class, which class names map to which icons, and when to rebuild/restart NodeBB after theme changes.
+    - [ ] Validate on the live website because it has all sections: desktop and mobile `/categories`, one category page with subcategories, "load more subcategories" if present, and at least one category with no game-icon class to confirm Font Awesome fallback still works.
+    - [ ] Explain any additional steps needed after implementation, especially ACP class entry, asset rebuild, restart/cache behavior, and whether uploaded category background images should be cleared for icon-driven categories.
+
+### Context for categories
+
+Categories are fully capitalized. I've also included my own suggestions of what they could look like. If you have better ideas, tell me.
+
+INFORMATION -- Find essential information about the server, updates, and how to get started. Could be a scroll.
+
+- Player Guide -- A tome of knowledge, a lantern, or a candle.
+- Announcements -- A bell? A town crier?
+- Patch Notes -- Updates, so maybe something like a wheel?
+
+COMMUNITY -- Out-of-character discussion and player interaction.
+
+- General Discussion -- "Speakeasy tavern" vibe
+- Introductions -- Handshake or similar.
+- Screenshots -- A canvas or artpiece?
+- Creations -- A lute or other instrument
+
+ROLEPLAY -- The stories, whispers, and unfolding lives within Westgate. Definitely use a creepy mask.
+
+- Notices -- Similar to announcemnts but these are "in-world", so may include things like... bounty posters?
+- Rumors & Gossip -- A whispering person?
+- Journals & Biographies -- Book or journal
+- Factions & Guilds -- Wax seal or coat of arms?
+
+SUPPORT -- Need help? Report issues, ask questions, or provide feedback here. A helping hand or a rope?
+
+- Common Issues & Questions -- Not sure.
+- Technical Help -- Something broken? A wrench? Tools?
+- Bug Reports -- A bug, or something broken.
+- Feedback -- Something that implies an idea
+
+DEVELOPMENT -- Behind-the-scenes work, tools, and development discussion. Use a gear or mechanism here.
+
+- Tools & References
+- General
+- Lore
+- Designs
+- Programming
+- Area Building
 
 ## Future Tasks
 
 Tasks to be considered in the future, not implemented immediately. Keep them in scope when making decisions.
 
-- [x] Draft a design for icons and avatars to look a little more "ornate", like literal signet rings, maybe with some subtle dark steel or faded gold bordering. Implemented with layered dark steel/faded gold borders and restrained inset highlights for category icons, child category icons, avatars, and user initials. `./nodebb build` passes; local browser validation was blocked because `localhost:4567` was not running.
 - [ ] Consider a light mode/dark mode toggle while retaining core theme, preferably without adding a Skin
 - [ ] Un-bold "topics" and "posts" and make the color lines replace the black line drived from category background color to either use the foreground color of the icon, or an ornate gilding like the icons (image 2)
 - [ ] Consider making the category names a bit smoother; it looks like it's not anti-aliased. (image 3)

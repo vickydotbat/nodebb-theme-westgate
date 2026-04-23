@@ -17,6 +17,7 @@
     "../client/account/theme.js": "../nodebb-theme-harmony/public/settings.js"
   },
   "staticDirs": {
-    "fonts": "public/fonts"
+    "fonts": "public/fonts",
+    "game-icons": "public/game-icons"
   }
 }
