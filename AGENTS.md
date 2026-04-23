@@ -25,15 +25,11 @@ Use this palette direction:
 - Avoid bright, playful, clinical, or flat SaaS-style treatment.
 - Favor depth, restraint, texture, and rich contrast over loud ornament.
 
-Reference prior theme work in this repo through files prefixed with `____`:
+Reference prior theme work in this repo through files in the `_references` directory:
 
-- `____live-copy.css`
-- `____wikijs-live-copy.scss`
-- `____bootstrap-overrides.scss`
+`ref_palettes.css` is the clearest reference for the intended slick gradient treatment. Use that direction for foreground elements such as panels, topic rows, buttons, borders, accents, and active states. Keep gradients rich and polished, but avoid turning the entire page into a decorative gradient background.
 
-`____live-copy.css` is the clearest reference for the intended slick gradient treatment. Use that direction for foreground elements such as panels, topic rows, buttons, borders, accents, and active states. Keep gradients rich and polished, but avoid turning the entire page into a decorative gradient background.
-
-When adding new visuals, study the `____` reference files first and match the existing direction before introducing new motifs.
+When adding new visuals, study the reference files first and match the existing direction before introducing new motifs.
 
 ## NodeBB Theme Rules
 
