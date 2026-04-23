@@ -41,6 +41,80 @@ li[component="categories/category"] .icon {
 		0 0 8px rgba(0, 0, 0, 0.22);
 }
 
+$wg-game-icon-path: "./plugins/nodebb-theme-westgate/game-icons/";
+$wg-game-icons: (
+	scroll-quill: "scroll-quill.svg",
+	rule-book: "rule-book.svg",
+	ringing-bell: "ringing-bell.svg",
+	spinning-wheel: "spinning-wheel.svg",
+	tavern-sign: "tavern-sign.svg",
+	saloon: "saloon.svg",
+	shaking-hands: "shaking-hands.svg",
+	large-paint-brush: "large-paint-brush.svg",
+	flute: "flute.svg",
+	drama-masks: "drama-masks.svg",
+	target-poster: "target-poster.svg",
+	chat-bubble: "chat-bubble.svg",
+	notebook: "notebook.svg",
+	wax-seal: "wax-seal.svg",
+	glowing-hands: "glowing-hands.svg",
+	question: "question.svg",
+	monkey-wrench: "monkey-wrench.svg",
+	long-antennae-bug: "long-antennae-bug.svg",
+	idea: "idea.svg",
+	gears: "gears.svg",
+	toolbox: "toolbox.svg",
+	compass: "compass.svg",
+	open-book: "open-book.svg",
+	pencil-ruler: "pencil-ruler.svg",
+	processor: "processor.svg",
+	castle-ruins: "castle-ruins.svg"
+);
+
+.westgate-category-header-icon {
+	flex-basis: auto;
+	width: auto;
+	max-width: none;
+}
+
+.westgate-category-header-icon[class*="wg-icon-"] > .icon,
+li[component="categories/category"][class*="wg-icon-"] > .d-flex > .flex-shrink-0 > .icon,
+.category-children-item[class*="wg-icon-"] > .westgate-category-child > .icon {
+	position: relative;
+	color: var(--wg-ledger-ink);
+}
+
+.westgate-category-header-icon[class*="wg-icon-"] > .icon > i,
+li[component="categories/category"][class*="wg-icon-"] > .d-flex > .flex-shrink-0 > .icon > i,
+.category-children-item[class*="wg-icon-"] > .westgate-category-child > .icon > i {
+	opacity: 0;
+}
+
+.westgate-category-header-icon[class*="wg-icon-"] > .icon::before,
+li[component="categories/category"][class*="wg-icon-"] > .d-flex > .flex-shrink-0 > .icon::before,
+.category-children-item[class*="wg-icon-"] > .westgate-category-child > .icon::before {
+	content: "";
+	position: absolute;
+	inset: 22%;
+	background: currentColor;
+	filter:
+		drop-shadow(0 1px 0 rgba(0, 0, 0, 0.72))
+		drop-shadow(0 -1px 0 rgba(255, 238, 190, 0.16));
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	pointer-events: none;
+}
+
+@each $name, $file in $wg-game-icons {
+	.westgate-category-header-icon.wg-icon-#{$name} > .icon::before,
+	li[component="categories/category"].wg-icon-#{$name} > .d-flex > .flex-shrink-0 > .icon::before,
+	.category-children-item.wg-icon-#{$name} > .westgate-category-child > .icon::before {
+		-webkit-mask-image: url("#{$wg-game-icon-path}#{$file}");
+		mask-image: url("#{$wg-game-icon-path}#{$file}");
+	}
+}
+
 li[component="categories/category"] h2.title {
 	position: relative;
 	padding-bottom: 0.18rem;

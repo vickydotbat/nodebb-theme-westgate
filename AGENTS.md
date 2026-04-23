@@ -99,17 +99,20 @@ Complete the following:
     - [x] Recommend icons from the game-icons pack for forum categories and their subcategories. See `GAME_ICONS.md`.
     - [x] Include the `.svg`/`.png` files in the theme if possible. SVG assets are in `public/game-icons/`.
     - [x] Author any necessary credits in a `.md` file at the root of the `nodebb-theme-westgate` repository. See `GAME_ICONS.md`.
-  - [ ] Phase 2: Implementation.
-    - [ ] Confirm category `class` data is present on all required render paths: `/categories`, category-page subcategory rows, category-page header, and AJAX-loaded "more subcategories" rows. Initial assessment: NodeBB stores and escapes `category.class`, and `getCategoryData`/`getCategoriesData` include it, but local templates currently do not emit it.
-    - [ ] Add ACP custom class output to local category templates. At minimum, add `{./class}` to root category rows and child/subcategory row wrappers so classes like `wg-icon-scroll-quill` can control icons without hardcoding category IDs.
-    - [ ] Add a minimal local `templates/category.tpl` override, copied from Harmony only as needed, so the category page header can expose `{./class}` around its `buildCategoryIcon(...)` output.
-    - [ ] Decide whether `templates/partials/categories/children.tpl` should remain a separate source of truth or whether the duplicated child markup inside `templates/partials/categories/item.tpl` should be collapsed back to the imported partial before adding icon classes.
-    - [ ] Implement the `wg-icon-*` CSS mask classes in a focused SCSS file or the existing category SCSS layer. Use `public/game-icons/*.svg` through the theme static path, hide/neutralize the Font Awesome `<i>` only for `wg-icon-*` classes, and render the game-icon mask via `::before` using `currentColor`.
-    - [ ] Preserve the existing ornate icon frame treatment: category ACP `bgColor`/`color` should still tint the icon frame/glyph where possible, with fallback faded-gold/dark-steel styling if ACP colors are too bright.
-    - [ ] Define the exact ACP custom classes to enter for each category/subcategory, based on `GAME_ICONS.md`, so setup can happen without theme code knowing category IDs.
-    - [ ] Document setup steps for admins: where to enter the custom class, which class names map to which icons, and when to rebuild/restart NodeBB after theme changes.
-    - [ ] Validate on the live website because it has all sections: desktop and mobile `/categories`, one category page with subcategories, "load more subcategories" if present, and at least one category with no game-icon class to confirm Font Awesome fallback still works.
-    - [ ] Explain any additional steps needed after implementation, especially ACP class entry, asset rebuild, restart/cache behavior, and whether uploaded category background images should be cleared for icon-driven categories.
+  - [-] Phase 2: Implementation.
+    - [x] Confirm category `class` data is present on all required render paths: `/categories`, category-page subcategory rows, category-page header, and AJAX-loaded "more subcategories" rows. NodeBB stores and escapes `category.class`; `getCategoryData`/`getCategoriesData` include it; the category template's `children` block is used for AJAX-loaded subcategories.
+    - [x] Add ACP custom class output to local category templates. Root category rows and child/subcategory row wrappers now emit `{./class}` so classes like `wg-icon-scroll-quill` can control icons without hardcoding category IDs.
+    - [x] Add a minimal local `templates/category.tpl` override, copied from Harmony only as needed, so the category page header can expose `{./class}` around its `buildCategoryIcon(...)` output.
+    - [x] Keep `templates/partials/categories/children.tpl` as the single source of truth for nested child markup and collapse the duplicate child markup in `templates/partials/categories/item.tpl` back to the imported partial before adding icon classes.
+    - [x] Implement the `wg-icon-*` CSS mask classes in the existing category SCSS layer. Use `public/game-icons/*.svg` through the theme static path, hide/neutralize the Font Awesome `<i>` only for `wg-icon-*` classes, and render the game-icon mask via `::before` using `currentColor`.
+    - [x] Preserve the existing ornate icon frame treatment: category ACP `bgColor`/`color` still drives the frame and glyph color because the mask uses the icon element's current color; fallback styling remains faded-gold/dark-steel.
+    - [x] Define the exact ACP custom classes to enter for each category/subcategory, based on `GAME_ICONS.md`, so setup can happen without theme code knowing category IDs.
+    - [x] Document setup steps for admins: where to enter the custom class, which class names map to which icons, and when to rebuild/restart NodeBB after theme changes.
+    - [x] Validate implementation scaffolding: `./nodebb build` succeeds, compiled templates emit `{./class}`, compiled CSS contains the `wg-icon-*` mask rules, and `/assets/plugins/nodebb-theme-westgate/game-icons/drama-masks.svg` returns HTTP 200.
+    - [ ] Enter the `wg-icon-*` values from `GAME_ICONS.md` into the live ACP category custom class fields. The current live data still contains legacy layout classes like `col-md-3 col-6`; keep them only if they are still intentionally used for layout, and append the `wg-icon-*` class alongside them.
+    - [ ] Validate actual game-icon visuals on the live website after ACP class entry: desktop and mobile `/categories`, one category page with subcategories, "load more subcategories" if present, and at least one category with no game-icon class to confirm Font Awesome fallback still works.
+    - [ ] Decide whether uploaded category background images should be cleared for icon-driven categories after seeing the final ACP-configured visuals.
+    - [ ] Explain any operational follow-up after ACP setup, especially asset rebuild, restart/cache behavior, and whether legacy Bootstrap layout classes should remain in category custom class fields.
 
 ### Context for categories
 
@@ -159,3 +162,6 @@ Tasks to be considered in the future, not implemented immediately. Keep them in 
 - [ ] Un-bold "topics" and "posts" and make the color lines replace the black line drived from category background color to either use the foreground color of the icon, or an ornate gilding like the icons (image 2)
 - [ ] Consider making the category names a bit smoother; it looks like it's not anti-aliased. (image 3)
 - [ ] Mobile website doesn't use the correct fonts.
+- [ ] In the process of testing widgets, I noticed that some are being given the "card" treatment (the glossy purple background element) even if there is no card container. Example here: http://localhost:4567/user/admin
+  - [ ] Widgets without the card containers should display plainly.
+  - [ ] Widgets can be put inside of a card container to make a card.

@@ -1,4 +1,4 @@
-<li component="categories/category" data-cid="{./cid}" class="westgate-category-card w-100 py-3 py-lg-4 gap-lg-0 gap-2 d-flex flex-column flex-lg-row align-items-start category-{./cid} {./unread-class}">
+<li component="categories/category" data-cid="{./cid}" class="westgate-category-card w-100 py-3 py-lg-4 gap-lg-0 gap-2 d-flex flex-column flex-lg-row align-items-start {./class} category-{./cid} {./unread-class}">
 	<meta itemprop="name" content="{./name}">
 
 	<div class="d-flex col-lg-7 gap-2 gap-lg-3">
@@ -31,18 +31,7 @@
 			{{{ end }}}
 			{{{ if !config.hideSubCategories }}}
 			{{{ if ./children.length }}}
-			<ul class="list-unstyled category-children row row-cols-1 row-cols-md-2 g-2 my-1 w-100">
-				{{{ each ./children }}}
-				{{{ if !./isSection }}}
-				<li data-cid="{./cid}" class="category-children-item small">
-					<div class="westgate-category-child d-flex gap-1">
-						{buildCategoryIcon(@value, "18px", "westgate-child-icon rounded-1")}
-						<a href="{{{ if ./link }}}{./link}{{{ else }}}{config.relative_path}/category/{./slug}{{{ end }}}" class="text-reset fw-semibold flex-1">{./name}</a>
-					</div>
-				</li>
-				{{{ end }}}
-				{{{ end }}}
-			</ul>
+			<!-- IMPORT partials/categories/children.tpl -->
 			{{{ end }}}
 			{{{ end }}}
 		</div>
