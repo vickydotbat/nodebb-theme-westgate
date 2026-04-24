@@ -1,4 +1,4 @@
-<div class="lastpost westgate-lastpost border-start border-2 lh-sm h-100" style="border-color: {./bgColor}!important;">
+<div class="lastpost westgate-lastpost border-start border-2 lh-sm h-100" style="border-color: {./color}!important;">
 	{{{ each ./posts }}}
 	{{{ if @first }}}
 	<div component="category/posts" class="ps-2 text-xs d-flex flex-column h-100 gap-1">
