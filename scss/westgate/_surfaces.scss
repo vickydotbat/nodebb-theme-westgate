@@ -172,6 +172,39 @@ li[component="category/topic"] .user-icon {
 	border-radius: 999px !important;
 }
 
+.status {
+	box-shadow:
+		0 0 0 2px var(--wg-status-ring),
+		0 0 0 3px rgba(216, 194, 138, 0.14),
+		0 0 12px rgba(0, 0, 0, 0.34);
+
+	&.online {
+		color: var(--wg-status-online) !important;
+		background-color: var(--wg-status-online) !important;
+	}
+
+	&.away {
+		color: var(--wg-status-away) !important;
+		background-color: var(--wg-status-away) !important;
+	}
+
+	&.dnd {
+		color: var(--wg-status-dnd) !important;
+		background-color: var(--wg-status-dnd) !important;
+	}
+
+	&.offline {
+		color: var(--wg-status-offline) !important;
+		background-color: var(--wg-status-offline) !important;
+	}
+}
+
+.fa-circle.status {
+	text-shadow:
+		0 0 0 2px var(--wg-status-ring),
+		0 0 10px rgba(0, 0, 0, 0.34);
+}
+
 .account,
 .account .profile,
 .account .cover,
