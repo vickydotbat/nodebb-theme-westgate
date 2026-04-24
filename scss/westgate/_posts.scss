@@ -137,6 +137,34 @@ li[component="post"] [component="post/reply-count"]:hover {
 	border-color: rgba(194, 163, 90, 0.2) !important;
 }
 
+@media (min-width: 992px) {
+	li[component="post"] [component="post/actions"] {
+		opacity: 1 !important;
+		transition: none !important;
+	}
+}
+
+li[component="post"] [component="post/upvote"] {
+	position: relative;
+
+	i.fa-chevron-up {
+		display: none !important;
+	}
+
+	&::before {
+		content: "\f004";
+		font-family: "Font Awesome 6 Free";
+		font-size: 0.95rem;
+		font-weight: 900;
+		line-height: 1;
+		color: var(--bs-primary);
+	}
+
+	&.upvoted::before {
+		color: #d47a87;
+	}
+}
+
 .topic-sidebar-tools .btn,
 [component="topic/navigator"] {
 	background: rgba(255, 255, 255, 0.018) !important;
