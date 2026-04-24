@@ -94,42 +94,7 @@ Statuses:
 
 Complete the following:
 
-- [-] In the process of testing widgets, I noticed that some are being given the "card" treatment (the glossy purple background element) even if there is no card container. Example here: http://localhost:4567/user/admin
-  - [x] Widgets without the card containers should display plainly.
-  - [x] Widgets can be put inside of a card container to make a card.
-  - [x] Expand this from a single-widget bug into a theme-wide widget compatibility pass. The current issue appears broader: too many generic containers, especially plain `<div>` wrappers emitted by widgets or templates, are inheriting the glossy purple gradient card treatment even when they are only structural wrappers.
-  - [x] Define a compatibility model for widget rendering before implementation:
-    - [x] Structural wrappers should remain visually neutral by default. A wrapper existing only for layout, spacing, templating, or plugin/widget output should not automatically become a "Westgate card".
-    - [x] Card styling should be opt-in and intentional. The gradient/gloss/chrome treatment should apply only to known card surfaces, explicit card utility classes, or template regions that are semantically meant to read as panels.
-    - [x] Plain-text widgets and lightweight HTML widgets must render cleanly without needing custom markup just to avoid accidental card chrome.
-    - [x] Nested widget markup should not compound card styling. A widget inside a panel should not create boxes-within-boxes unless the nested card is intentional.
-    - [x] Footer widgets require special handling. Footer text such as "Powered by NodeBB" should behave like footer chrome, not like a content card or panel.
-  - [x] Build a proper investigation plan for global compatibility:
-    - [x] Inventory which selectors currently apply the purple gradient/card treatment too broadly. Pay particular attention to rules targeting generic `div`, broad widget wrappers, `.card`, `.panel`, Bootstrap containers, Harmony wrappers, and footer/sidebar/account-page blocks.
-    - [x] Trace the rendered wrapper stack for several widget types in the running forum, not just one route. Include at minimum: footer HTML widget, profile-page widget areas, sidebar widgets, category-page widgets, and any ACP-placed plain text/HTML widget.
-    - [x] Distinguish between three classes of surfaces:
-      - [x] structural wrappers
-      - [x] content cards/panels
-      - [x] utility text blocks / footer chrome / metadata strips
-    - [x] Decide whether the best long-term model is:
-      - [ ] tightening overly broad selectors so they only target real card components
-      - [ ] introducing a small explicit Westgate card utility class for opt-in chrome
-      - [ ] adding a small set of opt-out compatibility rules for widget regions that must stay plain
-      - [x] or a hybrid of the above
-    - 2026-04-24 implementation note: `scss/westgate/_widgets.scss` now limits chrome to known panel surfaces (`.card`, `.alert`, `.forum-stats`, `.search-widget`, `.category`, legacy `.panel`/`.well`/`.jumbotron`) plus explicit opt-in utility classes `.westgate-widget-card` and `.wg-widget-card`. Generic top-level wrappers in widget areas are neutral again, and footer wrappers are forced back to plain chrome.
-  - [x] Define expected compatibility outcomes before coding:
-    - [x] A plain HTML widget that outputs only text or a single `<div>` should render plainly.
-    - [x] A widget wrapped in an intentional card class should receive the full glossy Westgate card treatment.
-    - [x] Existing topic lists, category lists, and intentional content panels should keep their current Westgate identity.
-    - [x] Footer widget areas should not automatically gain panel framing unless explicitly requested.
-    - [x] Account/profile pages such as `/user/admin` should not pick up accidental panel chrome from generic wrappers.
-    - [x] Widget/plugin markup from outside this theme should degrade gracefully even if it uses simple Bootstrap or generic `<div>` containers.
-  - [-] Validation plan once implementation starts:
-    - [ ] Check desktop and mobile for footer widgets, sidebar widgets, profile widgets, and at least one plain HTML widget with no special classes.
-    - [ ] Confirm that intentionally carded widgets still look like Westgate cards.
-    - [ ] Confirm that nested wrappers no longer create accidental card-on-card stacking.
-    - [ ] Verify no regressions to topic cards, category panels, or other intentional glossy surfaces.
-    - [x] Local investigation covered the rendered wrapper stack on `http://localhost:4567/user/admin`, `http://localhost:4567/categories`, `http://localhost:4567/category/2/announcements`, and the sidebar footer widget HTML from the live local render.
+- [ ] Experiment with adding a neat new background. Pull it from @/home/vicky/Projects/nwnee-shadowsoverwestgate/media/ae02ec4a-88df-4a53-b780-00b7c3f482f4.png and try to overlay the header with it. Use your best judgment for what "looks good".
 
 ## Future Tasks
 
@@ -192,9 +157,44 @@ Tasks to be considered in the future, not implemented immediately. Keep them in 
     - [ ] Decide whether uploaded category background images should be cleared for icon-driven categories after seeing the final ACP-configured visuals.
     - [ ] Explain any operational follow-up after ACP setup, especially asset rebuild, restart/cache behavior, and whether legacy Bootstrap layout classes should remain in category custom class fields.
 
-Next useful moves:
+- [-] In the process of testing widgets, I noticed that some are being given the "card" treatment (the glossy purple background element) even if there is no card container. Example here: http://localhost:4567/user/admin
+  - [x] Widgets without the card containers should display plainly.
+  - [x] Widgets can be put inside of a card container to make a card.
+  - [x] Expand this from a single-widget bug into a theme-wide widget compatibility pass. The current issue appears broader: too many generic containers, especially plain `<div>` wrappers emitted by widgets or templates, are inheriting the glossy purple gradient card treatment even when they are only structural wrappers.
+  - [x] Define a compatibility model for widget rendering before implementation:
+    - [x] Structural wrappers should remain visually neutral by default. A wrapper existing only for layout, spacing, templating, or plugin/widget output should not automatically become a "Westgate card".
+    - [x] Card styling should be opt-in and intentional. The gradient/gloss/chrome treatment should apply only to known card surfaces, explicit card utility classes, or template regions that are semantically meant to read as panels.
+    - [x] Plain-text widgets and lightweight HTML widgets must render cleanly without needing custom markup just to avoid accidental card chrome.
+    - [x] Nested widget markup should not compound card styling. A widget inside a panel should not create boxes-within-boxes unless the nested card is intentional.
+    - [x] Footer widgets require special handling. Footer text such as "Powered by NodeBB" should behave like footer chrome, not like a content card or panel.
+  - [x] Build a proper investigation plan for global compatibility:
+    - [x] Inventory which selectors currently apply the purple gradient/card treatment too broadly. Pay particular attention to rules targeting generic `div`, broad widget wrappers, `.card`, `.panel`, Bootstrap containers, Harmony wrappers, and footer/sidebar/account-page blocks.
+    - [x] Trace the rendered wrapper stack for several widget types in the running forum, not just one route. Include at minimum: footer HTML widget, profile-page widget areas, sidebar widgets, category-page widgets, and any ACP-placed plain text/HTML widget.
+    - [x] Distinguish between three classes of surfaces:
+      - [x] structural wrappers
+      - [x] content cards/panels
+      - [x] utility text blocks / footer chrome / metadata strips
+    - [x] Decide whether the best long-term model is:
+      - [ ] tightening overly broad selectors so they only target real card components
+      - [ ] introducing a small explicit Westgate card utility class for opt-in chrome
+      - [ ] adding a small set of opt-out compatibility rules for widget regions that must stay plain
+      - [x] or a hybrid of the above
+    - 2026-04-24 implementation note: `scss/westgate/_widgets.scss` now limits chrome to known panel surfaces (`.card`, `.alert`, `.forum-stats`, `.search-widget`, `.category`, legacy `.panel`/`.well`/`.jumbotron`) plus explicit opt-in utility classes `.westgate-widget-card` and `.wg-widget-card`. Generic top-level wrappers in widget areas are neutral again, and footer wrappers are forced back to plain chrome.
+  - [x] Define expected compatibility outcomes before coding:
+    - [x] A plain HTML widget that outputs only text or a single `<div>` should render plainly.
+    - [x] A widget wrapped in an intentional card class should receive the full glossy Westgate card treatment.
+    - [x] Existing topic lists, category lists, and intentional content panels should keep their current Westgate identity.
+    - [x] Footer widget areas should not automatically gain panel framing unless explicitly requested.
+    - [x] Account/profile pages such as `/user/admin` should not pick up accidental panel chrome from generic wrappers.
+    - [x] Widget/plugin markup from outside this theme should degrade gracefully even if it uses simple Bootstrap or generic `<div>` containers.
+  - [-] Validation plan once implementation starts:
+    - [ ] Check desktop and mobile for footer widgets, sidebar widgets, profile widgets, and at least one plain HTML widget with no special classes.
+    - [ ] Confirm that intentionally carded widgets still look like Westgate cards.
+    - [ ] Confirm that nested wrappers no longer create accidental card-on-card stacking.
+    - [ ] Verify no regressions to topic cards, category panels, or other intentional glossy surfaces.
+    - [x] Local investigation covered the rendered wrapper stack on `http://localhost:4567/user/admin`, `http://localhost:4567/categories`, `http://localhost:4567/category/2/announcements`, and the sidebar footer widget HTML from the live local render.
 
-Re-enter the preferred wg-icon-\* classes from GAME_ICONS.md into this local NodeBB instance, then rerun the rendered checks. Decide whether category background images should be cleared once the real ACP-configured icons are visible. Add the short operational note about rebuild/restart/cache behavior after ACP updates.
+Next useful moves:
 
 ### Context for categories
 

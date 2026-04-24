@@ -18,6 +18,7 @@
   },
   "staticDirs": {
     "fonts": "public/fonts",
-    "game-icons": "public/game-icons"
+    "game-icons": "public/game-icons",
+    "images": "public/images"
   }
 }
