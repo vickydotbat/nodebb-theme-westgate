@@ -65,11 +65,9 @@
 .composer .preview,
 .composer .CodeMirror,
 .composer .CodeMirror-scroll,
-.quick-reply,
 .quick-reply .card,
 .quick-reply .card-body,
 .quick-reply .quickreply-message,
-[component="topic/quickreply/container"],
 [component="topic/quickreply/container"] .card,
 [component="topic/quickreply/container"] .card-body {
 	background-color: rgba(18, 15, 22, 0.96) !important;
@@ -143,6 +141,24 @@ input[type="number"].form-control::-webkit-outer-spin-button {
 
 .quick-reply .card-body,
 [component="topic/quickreply/container"] .card-body {
+	box-shadow: none !important;
+}
+
+.quick-reply .quickreply-message,
+[component="topic/quickreply/container"] .quickreply-message {
+	background: transparent !important;
+	background-color: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+.quick-reply,
+[component="topic/quickreply/container"],
+.quick-reply form,
+[component="topic/quickreply/container"] form {
+	background: transparent !important;
+	background-color: transparent !important;
+	border: 0 !important;
 	box-shadow: none !important;
 }
 
