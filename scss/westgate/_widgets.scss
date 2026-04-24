@@ -23,12 +23,34 @@
 	gap: 0.85rem;
 }
 
-[data-widget-area] > :where(.card, .alert, .list-group, .forum-stats, .stats, .well, .jumbotron),
-[data-widget-area] > :where(div, section, aside):not(:empty):not(.hidden):not(.row):not([data-widget-area]) {
+[data-widget-area] > :where(
+	.card,
+	.alert,
+	.list-group,
+	.forum-stats,
+	.stats-card,
+	.stats,
+	.search-widget,
+	.category,
+	.well,
+	.jumbotron,
+	.panel,
+	.westgate-widget-card,
+	.wg-widget-card
+) {
 	color: var(--wg-text-soft);
 }
 
-[data-widget-area] > :where(div, section, aside):not(:empty):not(.hidden):not(.row):not([data-widget-area]):not(.card):not(.alert):not(.list-group) {
+[data-widget-area] > :where(
+	.forum-stats,
+	.search-widget,
+	.category,
+	.well,
+	.jumbotron,
+	.panel,
+	.westgate-widget-card,
+	.wg-widget-card
+) {
 	padding: 0.85rem;
 	background:
 		linear-gradient(to bottom, transparent calc(100% - 1px), rgba(194, 163, 90, 0.045) calc(100% - 1px)),
@@ -44,7 +66,10 @@
 [data-widget-area] .card.text-bg-light,
 [data-widget-area] .card-header.text-bg-light,
 [data-widget-area] .well,
-[data-widget-area] .jumbotron {
+[data-widget-area] .jumbotron,
+[data-widget-area] .panel,
+[data-widget-area] .westgate-widget-card,
+[data-widget-area] .wg-widget-card {
 	background:
 		linear-gradient(to bottom, rgba(255, 241, 196, 0.024), rgba(8, 7, 10, 0.08)),
 		var(--wg-velvet-panel) !important;
@@ -192,6 +217,14 @@
 	font-family: var(--wg-font-ui);
 }
 
+[data-widget-area="footer"] > :where(footer, .footer),
+[data-widget-area="sidebar-footer"] > :where(footer, .footer) {
+	padding: 0;
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
 [data-widget-area="footer"] > .row:has(> a.btn[href*="/user/"]) {
 	--bs-gutter-x: 0.45rem;
 	--bs-gutter-y: 0.45rem;
@@ -225,10 +258,10 @@
 
 [data-widget-area="sidebar"] .card,
 [data-widget-area="sidebar"] .alert,
-[data-widget-area="sidebar"] > :where(div, section, aside):not(:empty):not(.hidden):not(.row):not([data-widget-area]):not(.card):not(.alert):not(.list-group),
+[data-widget-area="sidebar"] > :where(.forum-stats, .search-widget, .category, .well, .jumbotron, .panel, .westgate-widget-card, .wg-widget-card),
 [data-widget-area="sidebar-footer"] .card,
 [data-widget-area="sidebar-footer"] .alert,
-[data-widget-area="sidebar-footer"] > :where(div, section, aside):not(:empty):not(.hidden):not(.row):not([data-widget-area]):not(.card):not(.alert):not(.list-group) {
+[data-widget-area="sidebar-footer"] > :where(.forum-stats, .search-widget, .category, .well, .jumbotron, .panel, .westgate-widget-card, .wg-widget-card) {
 	box-shadow:
 		inset 0 1px 0 rgba(255, 255, 255, 0.024),
 		0 8px 18px rgba(0, 0, 0, 0.18) !important;
