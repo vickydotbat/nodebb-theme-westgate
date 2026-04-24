@@ -181,17 +181,28 @@ li[component="categories/category"] .description {
 }
 
 ul.category-children {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+	gap: 0.5rem;
 	margin-top: 0.55rem !important;
 	padding-top: 0.35rem;
 	border-top: 0 !important;
 }
 
+.category-children-item {
+	width: auto !important;
+	max-width: none !important;
+	flex: initial !important;
+	margin: 0 !important;
+}
+
 .category-children-item > div,
 .westgate-category-child {
-	display: inline-flex;
+	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	max-width: 100%;
+	width: 100%;
+	max-width: none;
 	min-height: 2.1rem;
 	padding: 0.25rem 0.65rem 0.25rem 0.3rem;
 	background: rgba(44, 22, 34, 0.3);
@@ -236,7 +247,10 @@ ul.category-children {
 
 .category-children-item a {
 	color: #d8c28a !important;
+	display: block;
+	min-width: 0;
 	font-weight: 600;
+	line-height: 1.2;
 	text-decoration: none !important;
 }
 
