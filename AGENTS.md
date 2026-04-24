@@ -100,11 +100,6 @@ Complete the following:
 
 Tasks to be considered in the future, not implemented immediately. Keep them in scope when making decisions.
 
-- [ ] Consider a light mode/dark mode toggle while retaining core theme, preferably without adding a Skin
-- [ ] Un-bold "topics" and "posts" and make the color lines replace the black line drived from category background color to either use the foreground color of the icon, or an ornate gilding like the icons (image 2)
-- [ ] Consider making the category names a bit smoother; it looks like it's not anti-aliased. (image 3)
-- [ ] Mobile website doesn't use the correct fonts.
-
 - [-] Implement curated game-icons support for category/subcategory icons: sanitize selected SVGs into mask-friendly theme assets, expose them through `staticDirs`, add reusable `wg-icon-*` CSS mask classes, and include category custom classes in the local category/subcategory templates if Harmony data supports them.
   - [x] Phase 1: Build our icon stack.
     - [x] Recommend icons from the game-icons pack for forum categories and their subcategories. See `GAME_ICONS.md`.
