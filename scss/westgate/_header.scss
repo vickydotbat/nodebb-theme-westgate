@@ -16,7 +16,13 @@
     0 18px 42px rgba(0, 0, 0, 0.3);
 
   &::before {
-    content: none;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 62% 100%, rgba(88, 38, 86, 0.26), rgba(88, 38, 86, 0.13) 20%, transparent 44%),
+      linear-gradient(155deg, transparent 58%, rgba(55, 24, 53, 0.08) 78%, rgba(78, 33, 75, 0.14) 100%);
+    pointer-events: none;
   }
 }
 
