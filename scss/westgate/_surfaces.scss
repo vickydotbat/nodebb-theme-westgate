@@ -286,3 +286,12 @@ li[component="category/topic"] .user-icon {
 	border: 1px solid rgba(194, 163, 90, 0.28) !important;
 	color: var(--wg-ledger-ink) !important;
 }
+
+[component="chat/user/list"] [component="chat/user/list/username"] {
+	color: var(--wg-text-muted) !important;
+}
+
+[component="chat/user/list"] [data-uid].online [component="chat/user/list/username"] {
+	color: var(--wg-text) !important;
+	font-weight: 600;
+}
