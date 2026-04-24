@@ -15,5 +15,51 @@
 */
 
 $(document).ready(function () {
-	// Your code goes here
+	require(['api'], function (api) {
+		const originalGet = api.get.bind(api);
+		let categoryClassMapPromise;
+
+		function getCategoryClassMap() {
+			if (!categoryClassMapPromise) {
+				categoryClassMapPromise = new Promise((resolve) => {
+					originalGet('/categories', {}, function (err, data) {
+						if (err || !data || !Array.isArray(data.categories)) {
+							return resolve({});
+						}
+
+						const classMap = data.categories.reduce((memo, category) => {
+							if (category && category.cid !== undefined) {
+								memo[String(category.cid)] = category.class || '';
+							}
+							return memo;
+						}, {});
+
+						resolve(classMap);
+					});
+				});
+			}
+
+			return categoryClassMapPromise;
+		}
+
+		api.get = function (url, data, callback) {
+			if (url !== '/search/categories' || typeof callback !== 'function') {
+				return originalGet(url, data, callback);
+			}
+
+			return originalGet(url, data, function (err, payload) {
+				if (err || !payload || !Array.isArray(payload.categories)) {
+					return callback(err, payload);
+				}
+
+				getCategoryClassMap().then((classMap) => {
+					payload.categories = payload.categories.map(category => ({
+						...category,
+						class: category.class || classMap[String(category.cid)] || '',
+					}));
+					callback(null, payload);
+				});
+			});
+		};
+	});
 });
