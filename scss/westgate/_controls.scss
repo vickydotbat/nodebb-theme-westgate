@@ -498,6 +498,36 @@ table[component="notification/table"] a[data-type]:focus {
 	color: #f2dddd;
 }
 
+.page-flags .filter-btn,
+.page-flags [component="flags/filters"] .btn,
+.page-flags [component="flags/bulk-actions"] .btn {
+	color: var(--wg-text-soft) !important;
+}
+
+.page-flags [component="flags/filters"] .btn-warning {
+	--bs-btn-color: var(--wg-text-soft);
+	--bs-btn-bg: rgba(8, 7, 10, 0.12);
+	--bs-btn-border-color: rgba(216, 194, 138, 0.28);
+	--bs-btn-hover-color: var(--wg-text);
+	--bs-btn-hover-bg: rgba(194, 163, 90, 0.09);
+	--bs-btn-hover-border-color: rgba(216, 194, 138, 0.46);
+	--bs-btn-active-color: var(--wg-text);
+	--bs-btn-active-bg: rgba(194, 163, 90, 0.12);
+	--bs-btn-active-border-color: rgba(216, 194, 138, 0.5);
+	background-image: linear-gradient(to bottom, rgba(255, 244, 221, 0.018), rgba(0, 0, 0, 0.06));
+	box-shadow: inset 0 1px 0 rgba(255, 244, 221, 0.035);
+}
+
+.page-flags [component="flags/filters"] .caret {
+	color: var(--wg-gold) !important;
+	opacity: 0.8 !important;
+}
+
+.page-flags [component="flags/filters"] .text-bg-primary,
+.page-flags [component="flags/filters"] .text-bg-primary .btn {
+	color: var(--wg-ledger-ink) !important;
+}
+
 :focus-visible {
 	outline: 2px solid var(--wg-focus) !important;
 	outline-offset: 2px;

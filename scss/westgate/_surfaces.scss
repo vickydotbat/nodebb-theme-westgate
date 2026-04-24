@@ -295,3 +295,43 @@ li[component="category/topic"] .user-icon {
 	color: var(--wg-text) !important;
 	font-weight: 600;
 }
+
+.page-flags [component="flags/filters"] {
+	border-bottom-color: rgba(194, 163, 90, 0.12) !important;
+}
+
+.page-flags [component="flags/list"] {
+	--bs-table-bg: transparent;
+	--bs-table-color: var(--wg-text-soft);
+	--bs-table-border-color: rgba(194, 163, 90, 0.1);
+	--bs-table-hover-bg: rgba(194, 163, 90, 0.04);
+	--bs-table-hover-color: var(--wg-text);
+	color: var(--wg-text-soft) !important;
+}
+
+.page-flags [component="flags/list"] :where(th, td) {
+	color: var(--wg-text-soft) !important;
+	border-color: rgba(194, 163, 90, 0.1) !important;
+}
+
+.page-flags [component="flags/list"] thead :where(th, td) {
+	color: var(--wg-ledger-ink-muted) !important;
+}
+
+.page-flags [component="flags/list"] a.text-reset {
+	color: var(--wg-text-muted) !important;
+}
+
+.page-flags [component="flags/list"] a.text-reset:hover,
+.page-flags [component="flags/list"] a.text-reset:focus {
+	color: var(--wg-text) !important;
+}
+
+.page-flags [component="flags/list"] input[type="checkbox"] {
+	accent-color: var(--wg-gold);
+}
+
+.page-flags [component="flags/list"] .badge,
+.page-flags .card.card-header {
+	color: var(--wg-text) !important;
+}
