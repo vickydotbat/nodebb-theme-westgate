@@ -528,6 +528,19 @@ table[component="notification/table"] a[data-type]:focus {
 	color: var(--wg-ledger-ink) !important;
 }
 
+.chat-modal .btn-close,
+#chat-close-btn.btn-close {
+	filter: invert(86%) sepia(16%) saturate(360%) hue-rotate(356deg) brightness(95%) contrast(90%);
+	opacity: 0.82;
+}
+
+.chat-modal .btn-close:hover,
+.chat-modal .btn-close:focus,
+#chat-close-btn.btn-close:hover,
+#chat-close-btn.btn-close:focus {
+	opacity: 1;
+}
+
 :focus-visible {
 	outline: 2px solid var(--wg-focus) !important;
 	outline-offset: 2px;
