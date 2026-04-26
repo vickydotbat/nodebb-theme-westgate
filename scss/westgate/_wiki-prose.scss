@@ -1,0 +1,122 @@
+/**
+ * Optional CSS variables for nodebb-plugin-westgate-wiki:
+ * wiki shell chrome, `.wiki-article-prose` (read + CKEditor), and compose CKEditor UI.
+ * Loaded after tokens so --wg-* are available.
+ */
+:root {
+	/* Shell: parity with forum .card / velvet panels (see _surfaces.scss) */
+	--wiki-chrome-surface-bg: var(--wg-velvet-panel);
+	--wiki-chrome-surface-border: var(--wg-border-soft);
+	--wiki-chrome-radius: 8px;
+	--wiki-chrome-heading-color: var(--wg-text);
+	--wiki-chrome-page-title-font-family: var(--wg-font-display);
+	--wiki-chrome-muted-color: var(--wg-text-muted);
+	--wiki-chrome-link-color: var(--wg-gold);
+	--wiki-chrome-link-hover-color: #e0c878;
+	--wiki-chrome-accent-color: var(--wg-gold-soft);
+	--wiki-chrome-hero-bg: linear-gradient(
+		180deg,
+		rgba(42, 18, 34, 0.55) 0%,
+		rgba(18, 16, 23, 0.98) 100%
+	);
+	--wiki-chrome-warning-border: rgba(194, 163, 90, 0.45);
+	--wiki-chrome-danger: var(--wg-red);
+	--wiki-chrome-danger-hover: #c55a5f;
+	--wiki-redlink-color: #c06a6e;
+	--wiki-redlink-action-color: #e8a0a0;
+	--wiki-redlink-border-color: rgba(200, 90, 96, 0.45);
+
+	/* Article panel: alias of chrome surface (plugin checks these first) */
+	--wiki-panel-bg: var(--wg-velvet-panel);
+	--wiki-panel-border-color: var(--wg-border-soft);
+
+	--wiki-prose-font-family: var(--wg-font-text);
+	--wiki-prose-heading-font-family: var(--wg-font-display);
+	--wiki-prose-color: var(--wg-text-soft);
+	--wiki-prose-heading-color: var(--wg-text);
+	--wiki-prose-heading-font-weight: 600;
+	--wiki-prose-heading-text-shadow:
+		0 1px 0 rgba(0, 0, 0, 0.9),
+		0 0 10px rgba(104, 32, 76, 0.16);
+
+	--wiki-prose-link-color: var(--wg-gold);
+	--wiki-prose-link-hover-color: #e0c878;
+
+	--wiki-prose-blockquote-bg: rgba(35, 27, 23, 0.36);
+	--wiki-prose-blockquote-border: rgba(194, 163, 90, 0.4);
+	--wiki-prose-blockquote-color: var(--wg-text-soft);
+
+	--wiki-prose-code-font-family: var(--wg-font-code);
+	--wiki-prose-code-bg: rgba(8, 7, 10, 0.45);
+	--wiki-prose-code-border: rgba(194, 163, 90, 0.12);
+	--wiki-prose-code-color: var(--wg-text);
+
+	--wiki-prose-pre-bg: rgba(8, 7, 10, 0.55);
+	--wiki-prose-pre-border: rgba(194, 163, 90, 0.15);
+	--wiki-prose-pre-color: var(--wg-text-soft);
+
+	--wiki-prose-hr-color: rgba(194, 163, 90, 0.18);
+	--wiki-prose-table-border: rgba(194, 163, 90, 0.12);
+	--wiki-prose-table-head-color: var(--wg-ledger-ink-muted);
+	--wiki-prose-table-hover-bg: rgba(194, 163, 90, 0.04);
+	--wiki-prose-table-hover-color: var(--wg-text);
+
+	--wiki-prose-caption-bg: rgba(8, 7, 10, 0.42);
+	--wiki-prose-caption-color: var(--wg-text-muted);
+	--wiki-prose-caption-font-family: var(--wg-font-text);
+	--wiki-prose-media-iframe-border: rgba(194, 163, 90, 0.15);
+
+	--wiki-prose-raw-embed-bg: rgba(8, 7, 10, 0.4);
+	--wiki-prose-raw-embed-border: rgba(194, 163, 90, 0.25);
+	--wiki-prose-raw-embed-color: var(--wg-text-muted);
+
+	--wiki-compose-editable-bg: rgba(24, 15, 29, 0.94);
+	--wiki-compose-editable-border-color: rgba(202, 164, 106, 0.2);
+
+	--wiki-ck-base-background: #18141d;
+	--wiki-ck-base-foreground: #1e1824;
+	--wiki-ck-base-border: rgba(194, 163, 90, 0.22);
+	--wiki-ck-base-text: #cfc5b7;
+	/* CKEditor UI: .ck-reset_all and toolbar SVGs use --ck-color-text / currentColor */
+	--wiki-ck-ui-text: rgba(244, 236, 220, 0.92);
+	--wiki-ck-toolbar-icon-color: rgba(244, 236, 220, 0.9);
+	--wiki-ck-tooltip-background: rgba(10, 8, 14, 0.96);
+	--wiki-ck-tooltip-text: rgba(244, 236, 220, 0.95);
+	--wiki-ck-focus-border: rgba(194, 163, 90, 0.45);
+	--wiki-ck-focus-outer-shadow: rgba(194, 163, 90, 0.12);
+	--wiki-ck-shadow-drop: rgba(0, 0, 0, 0.45);
+	--wiki-ck-shadow-inner: rgba(0, 0, 0, 0.25);
+	--wiki-ck-toolbar-background: #16121a;
+	--wiki-ck-toolbar-border: rgba(194, 163, 90, 0.18);
+	--wiki-ck-button-hover-bg: rgba(194, 163, 90, 0.1);
+	--wiki-ck-button-active-bg: rgba(194, 163, 90, 0.14);
+	--wiki-ck-button-on-bg: rgba(194, 163, 90, 0.12);
+	--wiki-ck-button-on-hover-bg: rgba(194, 163, 90, 0.18);
+	--wiki-ck-button-on-active-bg: rgba(194, 163, 90, 0.22);
+	--wiki-ck-button-on-color: #e6d9b8;
+	--wiki-ck-dropdown-background: #1a1520;
+	--wiki-ck-dropdown-border: rgba(194, 163, 90, 0.2);
+	--wiki-ck-input-background: rgba(9, 8, 11, 0.55);
+	--wiki-ck-input-border: rgba(194, 163, 90, 0.22);
+	--wiki-ck-input-text: #e6e0d6;
+	--wiki-ck-list-background: #1a1520;
+	--wiki-ck-list-hover-bg: rgba(194, 163, 90, 0.1);
+	--wiki-ck-list-on-bg: rgba(194, 163, 90, 0.16);
+	--wiki-ck-list-on-text: #f0e6cc;
+	--wiki-ck-panel-background: #1a1520;
+	--wiki-ck-panel-border: rgba(194, 163, 90, 0.2);
+	--wiki-ck-switch-off-bg: #2a2430;
+	--wiki-ck-label-bg: #16121a;
+}
+
+/* Wiki read surfaces: match category/topic card depth */
+.westgate-wiki .card.wiki-page-hero,
+.westgate-wiki .card.wiki-hero,
+.westgate-wiki .card.wiki-section-hero,
+.westgate-wiki .card.wiki-page-content,
+.westgate-wiki .card.wiki-sidebar-card,
+.westgate-wiki .card.wiki-status-card,
+.westgate-wiki .card.wiki-card,
+.westgate-wiki .card.wiki-topic-card {
+	box-shadow: var(--wg-velvet-shadow);
+}
