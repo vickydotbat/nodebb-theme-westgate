@@ -64,6 +64,13 @@
 	--wiki-prose-caption-bg: rgba(8, 7, 10, 0.42);
 	--wiki-prose-caption-color: var(--wg-text-muted);
 	--wiki-prose-caption-font-family: var(--wg-font-text);
+	--wiki-prose-image-bg: rgba(8, 7, 10, 0.36);
+	--wiki-prose-image-border: rgba(194, 163, 90, 0.18);
+	--wiki-prose-image-padding: 0;
+	--wiki-prose-image-radius: 7px;
+	--wiki-prose-image-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.025),
+		0 8px 20px rgba(0, 0, 0, 0.18);
 	--wiki-prose-media-iframe-border: rgba(194, 163, 90, 0.15);
 
 	--wiki-prose-raw-embed-bg: rgba(8, 7, 10, 0.4);
@@ -139,6 +146,16 @@
 	border-radius: 8px !important;
 	box-shadow: var(--wg-velvet-shadow) !important;
 	color: var(--wg-text-soft);
+	isolation: isolate;
+}
+
+.westgate-wiki .card.wiki-page-content,
+.westgate-wiki .card.wiki-article-toc,
+.westgate-wiki .card.wiki-sidebar-panel,
+.westgate-wiki .card.wiki-sidebar-card {
+	background: var(--wg-velvet-panel) !important;
+	border-color: var(--wg-border) !important;
+	font-family: var(--wg-font-text);
 }
 
 .westgate-wiki .card.wiki-card:hover,
@@ -153,6 +170,10 @@
 
 .westgate-wiki .card > .card-body {
 	background: transparent !important;
+}
+
+.westgate-wiki .wiki-page-content.card > .card-body {
+	padding: 1rem !important;
 }
 
 .westgate-wiki .wiki-page-heading__title {
@@ -200,10 +221,13 @@
 }
 
 .westgate-wiki .wiki-sidebar-disclosure__summary {
-	background: linear-gradient(180deg, rgba(255, 244, 221, 0.03), rgba(0, 0, 0, 0.08)) !important;
-	border-bottom-color: rgba(194, 163, 90, 0.12) !important;
+	background: linear-gradient(180deg, rgba(255, 244, 221, 0.025), rgba(0, 0, 0, 0.075)) !important;
+	border-bottom-color: rgba(194, 163, 90, 0.11) !important;
 	color: var(--wg-text);
 	font-family: var(--wg-font-ui);
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
 	text-transform: none;
 }
 
@@ -219,6 +243,7 @@
 .westgate-wiki .wiki-sidebar-nav-ns,
 .westgate-wiki .wiki-sidebar-root {
 	color: #d8c28a !important;
+	font-family: var(--wg-font-ui);
 }
 
 .westgate-wiki .wiki-sidebar-nav-page,
@@ -226,6 +251,30 @@
 .westgate-wiki .wiki-sidebar-parent-path,
 .westgate-wiki .wiki-topic-parent-path {
 	color: var(--wg-text-muted) !important;
+	font-family: var(--wg-font-ui);
+}
+
+.westgate-wiki .wiki-article-toc__link {
+	font-size: 0.94rem;
+	font-weight: 600;
+	line-height: 1.35;
+}
+
+.westgate-wiki .wiki-sidebar-merged-nav h2,
+.westgate-wiki .wiki-sidebar-card h2 {
+	color: var(--wg-text);
+	font-family: var(--wg-font-display);
+	font-weight: 600;
+	letter-spacing: 0;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.9), 0 0 10px rgba(104, 32, 76, 0.16);
+}
+
+.westgate-wiki .wiki-sidebar-nav-ns,
+.westgate-wiki .wiki-sidebar-nav-page,
+.westgate-wiki .wiki-sidebar-root,
+.westgate-wiki .wiki-sidebar-list a {
+	line-height: 1.35;
+	text-decoration: none !important;
 }
 
 .westgate-wiki .wiki-sidebar-nav-row {
@@ -513,14 +562,44 @@ body:has(#westgate-wiki-compose) .ck.ck-dialog {
 	--ck-color-button-default-background: var(--wiki-ck-button-bg);
 	--ck-color-button-default-hover-background: var(--wiki-ck-button-hover-bg);
 	--ck-color-button-default-active-background: var(--wiki-ck-button-active-bg);
+	--ck-color-button-action-background: rgba(194, 163, 90, 0.18);
+	--ck-color-button-action-hover-background: rgba(194, 163, 90, 0.26);
+	--ck-color-button-action-active-background: rgba(194, 163, 90, 0.32);
+	--ck-color-button-action-disabled-background: transparent;
+	--ck-color-button-action-text: #fff4dd;
 	--ck-color-button-on-background: var(--wiki-ck-button-on-bg);
 	--ck-color-button-on-hover-background: var(--wiki-ck-button-on-hover-bg);
 	--ck-color-button-on-active-background: var(--wiki-ck-button-on-active-bg);
 	--ck-color-button-on-color: var(--wiki-ck-button-on-color);
+	--ck-color-input-disabled-background: rgba(9, 8, 11, 0.34);
+	--ck-color-input-disabled-border: rgba(194, 163, 90, 0.12);
+	--ck-color-input-disabled-text: rgba(185, 178, 166, 0.42);
+	--ck-color-labeled-field-label-background: var(--wiki-ck-panel-background);
 	background: var(--wiki-ck-panel-background) !important;
 	border-color: var(--wiki-ck-panel-border) !important;
 	color: var(--wiki-ck-ui-text) !important;
+	font-family: var(--wg-font-ui) !important;
 	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.42) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-balloon-panel:not(.ck-powered-by-balloon) :where(.ck, .ck-label, .ck-button__label, .ck-form__header__label, .ck-labeled-field-view__status),
+body:has(#westgate-wiki-compose) .ck.ck-dialog :where(.ck, .ck-label, .ck-button__label, .ck-form__header__label, .ck-labeled-field-view__status) {
+	color: inherit;
+	font-family: var(--wg-font-ui) !important;
+	letter-spacing: 0 !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-form__header {
+	background: linear-gradient(180deg, rgba(255, 244, 221, 0.025), rgba(0, 0, 0, 0.075)) !important;
+	border-bottom-color: rgba(194, 163, 90, 0.16) !important;
+	color: var(--wg-text) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-form__header .ck-form__header__label {
+	color: var(--wg-text) !important;
+	font-family: var(--wg-font-ui) !important;
+	font-size: 0.96rem !important;
+	font-weight: 700 !important;
 }
 
 body:has(#westgate-wiki-compose) .ck.ck-dropdown__panel .ck.ck-button:not(.ck-color-grid__tile),
@@ -548,6 +627,88 @@ body:has(#westgate-wiki-compose) .ck.ck-dialog .ck.ck-button:not(.ck-color-grid_
 	background: var(--wiki-ck-button-on-bg) !important;
 	border-color: rgba(194, 163, 90, 0.28) !important;
 	color: var(--wiki-ck-button-on-color) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-balloon-panel:not(.ck-powered-by-balloon) .ck.ck-button-action,
+body:has(#westgate-wiki-compose) .ck.ck-dialog .ck.ck-button-action {
+	background: rgba(194, 163, 90, 0.18) !important;
+	border-color: rgba(194, 163, 90, 0.3) !important;
+	color: #fff4dd !important;
+	font-weight: 700 !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-balloon-panel:not(.ck-powered-by-balloon) .ck.ck-button.ck-disabled,
+body:has(#westgate-wiki-compose) .ck.ck-dialog .ck.ck-button.ck-disabled {
+	background: transparent !important;
+	border-color: transparent !important;
+	color: rgba(185, 178, 166, 0.42) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-labeled-field-view > .ck.ck-labeled-field-view__input-wrapper > .ck.ck-label,
+body:has(#westgate-wiki-compose) .ck.ck-labeled-field-view.ck-labeled-field-view_empty:not(.ck-labeled-field-view_focused):not(.ck-labeled-field-view_placeholder):not(.ck-error) > .ck.ck-labeled-field-view__input-wrapper > .ck.ck-label {
+	background: var(--wiki-ck-panel-background) !important;
+	color: var(--wg-text-soft) !important;
+	font-family: var(--wg-font-ui) !important;
+	font-size: 0.78rem !important;
+	font-weight: 500 !important;
+	text-shadow: none !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-labeled-field-view.ck-disabled > .ck.ck-labeled-field-view__input-wrapper > .ck.ck-label,
+body:has(#westgate-wiki-compose) .ck.ck-labeled-field-view.ck-labeled-field-view_empty:not(.ck-labeled-field-view_focused) > .ck.ck-labeled-field-view__input-wrapper > .ck.ck-label {
+	color: rgba(185, 178, 166, 0.58) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck-results-counter,
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck-labeled-field-view__status {
+	color: var(--wg-text-muted) !important;
+	font-family: var(--wg-font-ui) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-balloon-panel.ck-find-and-replace-form,
+body:has(#westgate-wiki-compose) .ck.ck-dialog .ck.ck-find-and-replace-form {
+	background: var(--wiki-ck-panel-background) !important;
+	border-color: var(--wiki-ck-panel-border) !important;
+	color: var(--wiki-ck-ui-text) !important;
+	font-family: var(--wg-font-ui) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck.ck-form__header,
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck-find-and-replace-form__inputs,
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck-find-and-replace-form__actions {
+	background: transparent !important;
+	color: var(--wiki-ck-ui-text) !important;
+	font-family: var(--wg-font-ui) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form h2.ck-form__header__label,
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck-form__header__label,
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck-button__label,
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck-label {
+	color: inherit !important;
+	font-family: var(--wg-font-ui) !important;
+	letter-spacing: 0 !important;
+	text-shadow: none !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck.ck-input,
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form input.ck-input-text {
+	background: rgba(9, 8, 11, 0.68) !important;
+	border-color: rgba(194, 163, 90, 0.24) !important;
+	color: var(--wg-text) !important;
+	font-family: var(--wg-font-ui) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck.ck-input::placeholder,
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form input.ck-input-text::placeholder {
+	color: rgba(185, 178, 166, 0.62) !important;
+	opacity: 1 !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-find-and-replace-form .ck.ck-button-find {
+	color: #fff4dd !important;
+	font-family: var(--wg-font-ui) !important;
+	font-weight: 700 !important;
 }
 
 .westgate-wiki-compose .ck.ck-dropdown.ck-heading-dropdown .ck-dropdown__button .ck-button__label,
