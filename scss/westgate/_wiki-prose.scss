@@ -51,8 +51,8 @@
 	--wiki-prose-code-border: rgba(194, 163, 90, 0.12);
 	--wiki-prose-code-color: var(--wg-text);
 
-	--wiki-prose-pre-bg: rgba(8, 7, 10, 0.55);
-	--wiki-prose-pre-border: rgba(194, 163, 90, 0.15);
+	--wiki-prose-pre-bg: linear-gradient(180deg, rgba(18, 15, 22, 0.92), rgba(8, 7, 10, 0.82));
+	--wiki-prose-pre-border: rgba(194, 163, 90, 0.22);
 	--wiki-prose-pre-color: var(--wg-text-soft);
 
 	--wiki-prose-hr-color: rgba(194, 163, 90, 0.18);
@@ -72,6 +72,10 @@
 
 	--wiki-compose-editable-bg: rgba(24, 15, 29, 0.94);
 	--wiki-compose-editable-border-color: rgba(202, 164, 106, 0.2);
+	--wiki-compose-editable-focus-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.026),
+		0 0 0 1px rgba(194, 163, 90, 0.3),
+		0 0 18px rgba(194, 163, 90, 0.08);
 
 	--wiki-ck-base-background: #18141d;
 	--wiki-ck-base-foreground: #1e1824;
@@ -88,6 +92,7 @@
 	--wiki-ck-shadow-inner: rgba(0, 0, 0, 0.25);
 	--wiki-ck-toolbar-background: #16121a;
 	--wiki-ck-toolbar-border: rgba(194, 163, 90, 0.18);
+	--wiki-ck-button-bg: transparent;
 	--wiki-ck-button-hover-bg: rgba(194, 163, 90, 0.1);
 	--wiki-ck-button-active-bg: rgba(194, 163, 90, 0.14);
 	--wiki-ck-button-on-bg: rgba(194, 163, 90, 0.12);
@@ -107,16 +112,603 @@
 	--wiki-ck-panel-border: rgba(194, 163, 90, 0.2);
 	--wiki-ck-switch-off-bg: #2a2430;
 	--wiki-ck-label-bg: #16121a;
+
+	--wiki-fab-bg: rgba(18, 15, 22, 0.9);
+	--wiki-fab-border-color: rgba(194, 163, 90, 0.18);
+	--wiki-fab-shadow: var(--wg-velvet-shadow);
+	--wiki-fab-btn-bg: rgba(194, 163, 90, 0.075);
+	--wiki-fab-btn-border: rgba(216, 194, 138, 0.24);
+	--wiki-fab-danger-bg: rgba(142, 52, 56, 0.16);
 }
 
-/* Wiki read surfaces: match category/topic card depth */
+/* Wiki surfaces: match forum category/topic panel depth. */
 .westgate-wiki .card.wiki-page-hero,
 .westgate-wiki .card.wiki-hero,
 .westgate-wiki .card.wiki-section-hero,
 .westgate-wiki .card.wiki-page-content,
+.westgate-wiki .card.wiki-namespace-index,
+.westgate-wiki .card.wiki-article-toc,
+.westgate-wiki .card.wiki-sidebar-panel,
 .westgate-wiki .card.wiki-sidebar-card,
 .westgate-wiki .card.wiki-status-card,
 .westgate-wiki .card.wiki-card,
-.westgate-wiki .card.wiki-topic-card {
-	box-shadow: var(--wg-velvet-shadow);
+.westgate-wiki .card.wiki-topic-card,
+.westgate-wiki .card.wiki-compose-form {
+	background: var(--wg-velvet-panel) !important;
+	border: 1px solid var(--wg-border) !important;
+	border-radius: 8px !important;
+	box-shadow: var(--wg-velvet-shadow) !important;
+	color: var(--wg-text-soft);
+}
+
+.westgate-wiki .card.wiki-card:hover,
+.westgate-wiki .card.wiki-topic-card:hover {
+	background: var(--wg-velvet-panel-hover) !important;
+	border-color: rgba(194, 163, 90, 0.22) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.035),
+		inset 0 0 38px rgba(120, 36, 84, 0.14),
+		0 12px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.westgate-wiki .card > .card-body {
+	background: transparent !important;
+}
+
+.westgate-wiki .wiki-page-heading__title {
+	font-size: clamp(2rem, 5vw, 2.65rem);
+	line-height: 1.05;
+}
+
+.westgate-wiki .wiki-page-heading__meta,
+.westgate-wiki .wiki-page-byline,
+.westgate-wiki .wiki-section-description,
+.westgate-wiki .wiki-hub-tagline,
+.westgate-wiki .wiki-topic-count,
+.westgate-wiki .wiki-card-description,
+.westgate-wiki .wiki-index-entry-desc,
+.westgate-wiki .wiki-index-entry-meta {
+	color: var(--wg-text-muted) !important;
+}
+
+.westgate-wiki .wiki-breadcrumb-trail {
+	color: var(--wg-text-muted);
+	font-family: var(--wg-font-ui);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+}
+
+.westgate-wiki .wiki-breadcrumb-trail__text--current,
+.westgate-wiki .wiki-breadcrumb-trail__action {
+	color: var(--wg-text);
+}
+
+.westgate-wiki :where(.wiki-card h2, .wiki-topic-card h2, .wiki-section-heading h2, .wiki-subsection-card h3) {
+	font-family: var(--wg-font-display);
+	letter-spacing: 0;
+}
+
+.westgate-wiki :where(.wiki-card-link, .wiki-card h2 a, .wiki-topic-list a, .wiki-index-entry-title, .wiki-index-jump-link, .wiki-page-byline__userlink) {
+	color: var(--wg-gold) !important;
+	text-decoration-color: rgba(194, 163, 90, 0.5);
+}
+
+.westgate-wiki :where(.wiki-card-link, .wiki-card h2 a, .wiki-topic-list a, .wiki-index-entry-title, .wiki-index-jump-link, .wiki-page-byline__userlink):hover,
+.westgate-wiki :where(.wiki-card-link, .wiki-card h2 a, .wiki-topic-list a, .wiki-index-entry-title, .wiki-index-jump-link, .wiki-page-byline__userlink):focus {
+	color: #e0c878 !important;
+	text-decoration-color: currentColor;
+}
+
+.westgate-wiki .wiki-sidebar-disclosure__summary {
+	background: linear-gradient(180deg, rgba(255, 244, 221, 0.03), rgba(0, 0, 0, 0.08)) !important;
+	border-bottom-color: rgba(194, 163, 90, 0.12) !important;
+	color: var(--wg-text);
+	font-family: var(--wg-font-ui);
+	text-transform: none;
+}
+
+.westgate-wiki .wiki-sidebar-disclosure__summary:focus {
+	box-shadow: inset 0 0 0 2px rgba(194, 163, 90, 0.28) !important;
+}
+
+.westgate-wiki .wiki-article-toc__ol.wiki-article-toc__ol--nest {
+	border-inline-start-color: rgba(194, 163, 90, 0.18);
+}
+
+.westgate-wiki .wiki-article-toc__link,
+.westgate-wiki .wiki-sidebar-nav-ns,
+.westgate-wiki .wiki-sidebar-root {
+	color: #d8c28a !important;
+}
+
+.westgate-wiki .wiki-sidebar-nav-page,
+.westgate-wiki .wiki-sidebar-list a,
+.westgate-wiki .wiki-sidebar-parent-path,
+.westgate-wiki .wiki-topic-parent-path {
+	color: var(--wg-text-muted) !important;
+}
+
+.westgate-wiki .wiki-sidebar-nav-row {
+	border-radius: 6px;
+	transition: background 0.16s ease, color 0.16s ease;
+}
+
+.westgate-wiki .wiki-sidebar-nav-row.is-active {
+	background: rgba(194, 163, 90, 0.07);
+	box-shadow: inset 2px 0 0 rgba(194, 163, 90, 0.42);
+	padding-block: 0.2rem;
+	padding-inline-end: 0.35rem;
+}
+
+.westgate-wiki .wiki-sidebar-nav-row.is-active .wiki-sidebar-nav-page,
+.westgate-wiki .wiki-sidebar-list .is-active a {
+	color: var(--wg-gold) !important;
+}
+
+.westgate-wiki .wiki-sidebar-divider,
+.westgate-wiki .wiki-index-section-rule,
+.westgate-wiki .wiki-index-letter {
+	border-color: rgba(194, 163, 90, 0.13) !important;
+}
+
+.westgate-wiki .wiki-index-jump-link,
+.westgate-wiki .wiki-index-entry-badge {
+	background: rgba(194, 163, 90, 0.055) !important;
+	border-color: rgba(194, 163, 90, 0.14) !important;
+}
+
+.westgate-wiki .wiki-fab-dock-inner {
+	background: rgba(18, 15, 22, 0.9) !important;
+	border-color: rgba(194, 163, 90, 0.18) !important;
+	border-radius: 8px !important;
+	box-shadow: var(--wg-velvet-shadow) !important;
+}
+
+.westgate-wiki .wiki-fab-btn {
+	background: rgba(194, 163, 90, 0.075) !important;
+	border-color: rgba(216, 194, 138, 0.24) !important;
+	border-radius: 6px !important;
+	color: var(--wg-gold) !important;
+	transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+
+.westgate-wiki .wiki-fab-btn:hover,
+.westgate-wiki .wiki-fab-btn:focus {
+	background: rgba(194, 163, 90, 0.13) !important;
+	border-color: rgba(216, 194, 138, 0.44) !important;
+	color: #fff4dd !important;
+}
+
+.westgate-wiki .wiki-fab-btn--danger,
+.westgate-wiki .wiki-fab-btn.wiki-delete-page {
+	background: rgba(142, 52, 56, 0.16) !important;
+	border-color: rgba(197, 90, 95, 0.36) !important;
+	color: #d98286 !important;
+}
+
+.westgate-wiki .wiki-fab-btn--danger:hover,
+.westgate-wiki .wiki-fab-btn--danger:focus,
+.westgate-wiki .wiki-fab-btn.wiki-delete-page:hover,
+.westgate-wiki .wiki-fab-btn.wiki-delete-page:focus {
+	background: rgba(142, 52, 56, 0.24) !important;
+	border-color: rgba(197, 90, 95, 0.54) !important;
+	color: #f0a2a5 !important;
+}
+
+.westgate-wiki-compose .wiki-compose-form {
+	padding: 1rem !important;
+}
+
+.westgate-wiki-compose .form-label {
+	color: var(--wg-text-soft);
+	font-family: var(--wg-font-ui);
+	font-weight: 600;
+}
+
+.westgate-wiki-compose .text-muted,
+.westgate-wiki-compose .small {
+	color: var(--wg-text-muted) !important;
+}
+
+.westgate-wiki-compose .ck.ck-editor {
+	--ck-spacing-tiny: 0.28rem;
+	--ck-spacing-small: 0.42rem;
+	--ck-spacing-standard: 0.62rem;
+	--ck-color-button-default-background: var(--wiki-ck-button-bg);
+	--ck-color-button-default-hover-background: var(--wiki-ck-button-hover-bg);
+	--ck-color-button-default-active-background: var(--wiki-ck-button-active-bg);
+	--ck-color-button-on-background: var(--wiki-ck-button-on-bg);
+	--ck-color-button-on-hover-background: var(--wiki-ck-button-on-hover-bg);
+	--ck-color-button-on-active-background: var(--wiki-ck-button-on-active-bg);
+	--ck-color-button-on-color: var(--wiki-ck-button-on-color);
+	color: var(--wiki-ck-ui-text);
+}
+
+.westgate-wiki-compose .ck.ck-toolbar {
+	background: var(--wiki-ck-toolbar-background) !important;
+	border-color: var(--wiki-ck-toolbar-border) !important;
+	border-radius: 8px 8px 0 0 !important;
+	padding: 0.28rem !important;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar__items {
+	gap: 0.12rem;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button {
+	background: var(--wiki-ck-button-bg) !important;
+	border: 1px solid transparent !important;
+	border-radius: 5px !important;
+	color: var(--wiki-ck-toolbar-icon-color) !important;
+	min-height: 2rem;
+	min-width: 2rem;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button:hover,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button:focus,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button:active,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button:hover,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button:focus,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button:active,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button.ck-on,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button.ck-on {
+	background: var(--wiki-ck-button-hover-bg) !important;
+	border-color: rgba(194, 163, 90, 0.2) !important;
+	color: #fff4dd !important;
+	box-shadow: inset 0 1px 0 rgba(255, 244, 221, 0.035);
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button.ck-on,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button.ck-on {
+	background: var(--wiki-ck-button-on-bg) !important;
+	border-color: rgba(194, 163, 90, 0.3) !important;
+	color: var(--wiki-ck-button-on-color) !important;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button.ck-on:hover,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button.ck-on:focus,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button.ck-on:hover,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button.ck-on:focus {
+	background: var(--wiki-ck-button-on-hover-bg) !important;
+	color: #fff4dd !important;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button:focus-visible,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button:focus-visible {
+	outline: 2px solid rgba(194, 163, 90, 0.28) !important;
+	outline-offset: 1px;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button.ck-disabled,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button.ck-disabled {
+	background: transparent !important;
+	border-color: transparent !important;
+	color: rgba(185, 178, 166, 0.42) !important;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button .ck-icon,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button .ck-icon {
+	color: currentColor !important;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button .ck-icon *,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-dropdown__button .ck-icon * {
+	fill: currentColor !important;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-splitbutton {
+	border-radius: 5px !important;
+	overflow: hidden;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-splitbutton > .ck.ck-button,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-splitbutton > .ck.ck-dropdown__button {
+	border-radius: 0 !important;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-splitbutton:hover > .ck.ck-button,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-splitbutton:hover > .ck.ck-dropdown__button {
+	background: var(--wiki-ck-button-hover-bg) !important;
+	border-color: rgba(194, 163, 90, 0.2) !important;
+	color: #fff4dd !important;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-color-selector__remove-color,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-input-color__button,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button_with-text {
+	background: var(--wiki-ck-button-bg) !important;
+	color: var(--wiki-ck-toolbar-icon-color) !important;
+}
+
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-color-selector__remove-color:hover,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-color-selector__remove-color:focus,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-input-color__button:hover,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-input-color__button:focus,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button_with-text:hover,
+.westgate-wiki-compose .ck.ck-toolbar .ck.ck-button_with-text:focus {
+	background: var(--wiki-ck-button-hover-bg) !important;
+	border-color: rgba(194, 163, 90, 0.2) !important;
+	color: #fff4dd !important;
+}
+
+.westgate-wiki-compose .ck.ck-editor__main > .ck.ck-editor__editable,
+.westgate-wiki-compose .wiki-article-prose .ck.ck-editor__editable_inline,
+.westgate-wiki-compose .ck.ck-editor__editable_inline.wiki-article-prose {
+	background: var(--wiki-compose-editable-bg) !important;
+	border-color: var(--wiki-compose-editable-border-color) !important;
+	border-radius: 0 0 8px 8px !important;
+	color: var(--wg-text-soft) !important;
+}
+
+.westgate-wiki .wiki-article-prose pre,
+.westgate-wiki-compose .wiki-article-prose .ck.ck-editor__editable_inline.ck-content pre,
+.westgate-wiki-compose .ck.ck-editor__editable_inline.wiki-article-prose.ck-content pre {
+	background: var(--wiki-prose-pre-bg) !important;
+	border: 1px solid var(--wiki-prose-pre-border) !important;
+	border-radius: 7px !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.035),
+		inset 0 0 0 1px rgba(8, 7, 10, 0.45),
+		inset 0 -8px 24px rgba(0, 0, 0, 0.22),
+		0 8px 18px rgba(0, 0, 0, 0.18) !important;
+	color: var(--wiki-prose-pre-color) !important;
+}
+
+.westgate-wiki .wiki-article-prose pre code,
+.westgate-wiki-compose .wiki-article-prose .ck.ck-editor__editable_inline.ck-content pre code,
+.westgate-wiki-compose .ck.ck-editor__editable_inline.wiki-article-prose.ck-content pre code {
+	background: transparent !important;
+	border: 0 !important;
+	color: var(--wiki-prose-pre-color) !important;
+	font-family: var(--wg-font-code) !important;
+}
+
+.westgate-wiki-compose .wiki-article-prose .ck.ck-editor__editable_inline.ck-content pre[data-language]::after,
+.westgate-wiki-compose .ck.ck-editor__editable_inline.wiki-article-prose.ck-content pre[data-language]::after,
+.westgate-wiki-compose .ck-code-block-language-label {
+	background: rgba(194, 163, 90, 0.14) !important;
+	border: 1px solid rgba(194, 163, 90, 0.22) !important;
+	border-radius: 0 0 0 5px !important;
+	color: var(--wg-text-soft) !important;
+	font-family: var(--wg-font-ui) !important;
+	font-size: 0.72rem !important;
+	font-weight: 600 !important;
+}
+
+.westgate-wiki-compose .ck-source-editing-area,
+.westgate-wiki-compose .ck-source-editing-area textarea,
+.westgate-wiki-compose .ck.ck-source-editing-area,
+.westgate-wiki-compose textarea.ck-source-editing-area {
+	background: rgba(9, 8, 11, 0.92) !important;
+	color: var(--wg-text-soft) !important;
+}
+
+.westgate-wiki-compose .ck-source-editing-area textarea,
+.westgate-wiki-compose textarea.ck-source-editing-area {
+	border-color: rgba(194, 163, 90, 0.24) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.025),
+		inset 0 0 0 1px rgba(8, 7, 10, 0.45) !important;
+	caret-color: var(--wg-gold);
+	font-family: var(--wg-font-code) !important;
+}
+
+.westgate-wiki-compose .ck-source-editing-area textarea:focus,
+.westgate-wiki-compose textarea.ck-source-editing-area:focus {
+	border-color: rgba(194, 163, 90, 0.45) !important;
+	box-shadow: var(--wiki-compose-editable-focus-shadow) !important;
+	outline: none !important;
+}
+
+.westgate-wiki-compose .wiki-article-prose .ck.ck-editor__editable_inline.ck-focused,
+.westgate-wiki-compose .ck.ck-editor__editable_inline.wiki-article-prose.ck-focused {
+	border-color: rgba(194, 163, 90, 0.45) !important;
+	box-shadow: var(--wiki-compose-editable-focus-shadow) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-dropdown__panel,
+body:has(#westgate-wiki-compose) .ck.ck-balloon-panel:not(.ck-powered-by-balloon),
+body:has(#westgate-wiki-compose) .ck.ck-dialog {
+	--ck-color-button-default-background: var(--wiki-ck-button-bg);
+	--ck-color-button-default-hover-background: var(--wiki-ck-button-hover-bg);
+	--ck-color-button-default-active-background: var(--wiki-ck-button-active-bg);
+	--ck-color-button-on-background: var(--wiki-ck-button-on-bg);
+	--ck-color-button-on-hover-background: var(--wiki-ck-button-on-hover-bg);
+	--ck-color-button-on-active-background: var(--wiki-ck-button-on-active-bg);
+	--ck-color-button-on-color: var(--wiki-ck-button-on-color);
+	background: var(--wiki-ck-panel-background) !important;
+	border-color: var(--wiki-ck-panel-border) !important;
+	color: var(--wiki-ck-ui-text) !important;
+	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.42) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-dropdown__panel .ck.ck-button:not(.ck-color-grid__tile),
+body:has(#westgate-wiki-compose) .ck.ck-balloon-panel:not(.ck-powered-by-balloon) .ck.ck-button:not(.ck-color-grid__tile),
+body:has(#westgate-wiki-compose) .ck.ck-dialog .ck.ck-button:not(.ck-color-grid__tile) {
+	background: transparent !important;
+	border-color: transparent !important;
+	color: var(--wiki-ck-ui-text) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-dropdown__panel .ck.ck-button:not(.ck-color-grid__tile):hover,
+body:has(#westgate-wiki-compose) .ck.ck-dropdown__panel .ck.ck-button:not(.ck-color-grid__tile):focus,
+body:has(#westgate-wiki-compose) .ck.ck-balloon-panel:not(.ck-powered-by-balloon) .ck.ck-button:not(.ck-color-grid__tile):hover,
+body:has(#westgate-wiki-compose) .ck.ck-balloon-panel:not(.ck-powered-by-balloon) .ck.ck-button:not(.ck-color-grid__tile):focus,
+body:has(#westgate-wiki-compose) .ck.ck-dialog .ck.ck-button:not(.ck-color-grid__tile):hover,
+body:has(#westgate-wiki-compose) .ck.ck-dialog .ck.ck-button:not(.ck-color-grid__tile):focus {
+	background: var(--wiki-ck-button-hover-bg) !important;
+	border-color: rgba(194, 163, 90, 0.2) !important;
+	color: #fff4dd !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-dropdown__panel .ck.ck-button:not(.ck-color-grid__tile).ck-on,
+body:has(#westgate-wiki-compose) .ck.ck-balloon-panel:not(.ck-powered-by-balloon) .ck.ck-button:not(.ck-color-grid__tile).ck-on,
+body:has(#westgate-wiki-compose) .ck.ck-dialog .ck.ck-button:not(.ck-color-grid__tile).ck-on {
+	background: var(--wiki-ck-button-on-bg) !important;
+	border-color: rgba(194, 163, 90, 0.28) !important;
+	color: var(--wiki-ck-button-on-color) !important;
+}
+
+.westgate-wiki-compose .ck.ck-dropdown.ck-heading-dropdown .ck-dropdown__button .ck-button__label,
+body:has(#westgate-wiki-compose) .ck.ck-dropdown.ck-heading-dropdown .ck-dropdown__panel .ck-button__label {
+	font-family: var(--wg-font-ui) !important;
+	font-weight: 500 !important;
+	letter-spacing: 0 !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-dropdown.ck-heading-dropdown .ck-dropdown__panel .ck[class*="ck-heading_heading"] .ck-button__label {
+	font-family: var(--wg-font-display) !important;
+	font-weight: 600 !important;
+	letter-spacing: 0 !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-dropdown.ck-heading-dropdown .ck-heading_heading1 .ck-button__label {
+	font-size: 1.35rem !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-dropdown.ck-heading-dropdown .ck-heading_heading2 .ck-button__label {
+	font-size: 1.16rem !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-dropdown.ck-heading-dropdown .ck-heading_heading3 .ck-button__label,
+body:has(#westgate-wiki-compose) .ck.ck-dropdown.ck-heading-dropdown .ck-heading_heading4 .ck-button__label {
+	font-size: 1rem !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-color-selector,
+body:has(#westgate-wiki-compose) .ck.ck-color-grid {
+	background: var(--wiki-ck-panel-background) !important;
+	color: var(--wiki-ck-ui-text) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-color-grid__label {
+	color: var(--wg-text-soft) !important;
+	font-family: var(--wg-font-ui) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-color-grid__tile {
+	border-radius: 5px !important;
+	color: inherit;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-color-grid__tile.ck-color-selector__color-tile_bordered {
+	box-shadow: 0 0 0 1px rgba(244, 236, 220, 0.58) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-color-grid__tile:hover:not(.ck-disabled),
+body:has(#westgate-wiki-compose) .ck.ck-color-grid__tile:focus:not(.ck-disabled) {
+	box-shadow:
+		inset 0 0 0 1px rgba(8, 7, 10, 0.76),
+		0 0 0 2px rgba(216, 194, 138, 0.66) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-color-grid__tile.ck-on {
+	box-shadow:
+		inset 0 0 0 1px rgba(8, 7, 10, 0.86),
+		0 0 0 2px rgba(246, 223, 163, 0.82) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck .ck-insert-table-dropdown__grid {
+	background: transparent !important;
+	padding: 0.75rem !important;
+}
+
+body:has(#westgate-wiki-compose) .ck .ck-insert-table-dropdown-grid-box {
+	background: rgba(194, 163, 90, 0.075) !important;
+	border: 1px solid rgba(216, 194, 138, 0.26) !important;
+	border-radius: 4px !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.035),
+		0 0 0 1px rgba(8, 7, 10, 0.36) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck .ck-insert-table-dropdown-grid-box:hover,
+body:has(#westgate-wiki-compose) .ck .ck-insert-table-dropdown-grid-box:focus {
+	background: rgba(194, 163, 90, 0.18) !important;
+	border-color: rgba(216, 194, 138, 0.52) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.055),
+		0 0 0 1px rgba(194, 163, 90, 0.24) !important;
+	outline: none !important;
+}
+
+body:has(#westgate-wiki-compose) .ck .ck-insert-table-dropdown-grid-box.ck-on {
+	background: rgba(194, 163, 90, 0.28) !important;
+	border-color: rgba(246, 223, 163, 0.64) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.08),
+		0 0 0 1px rgba(194, 163, 90, 0.34) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck .ck-insert-table-dropdown__label {
+	color: var(--wg-text-soft) !important;
+	font-family: var(--wg-font-ui) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker,
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker .ck-emoji-picker__categories,
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker .ck-emoji-picker__content {
+	background: var(--wiki-ck-panel-background) !important;
+	color: var(--wiki-ck-ui-text) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker :where(.ck-label, .ck-labeled-field-view__label, .ck-emoji-picker__title) {
+	background: var(--wiki-ck-panel-background) !important;
+	color: var(--wg-text-soft) !important;
+	font-family: var(--wg-font-ui) !important;
+	text-shadow: none !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker :where(.ck-input, .ck-input-text, input[type="text"], input[type="search"]) {
+	background: rgba(9, 8, 11, 0.74) !important;
+	border-color: rgba(194, 163, 90, 0.26) !important;
+	color: var(--wg-text) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.025),
+		0 0 0 1px rgba(8, 7, 10, 0.42) !important;
+	caret-color: var(--wg-gold);
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker :where(.ck-input, .ck-input-text, input[type="text"], input[type="search"]):focus {
+	border-color: rgba(194, 163, 90, 0.5) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 244, 221, 0.026),
+		0 0 0 1px rgba(194, 163, 90, 0.28) !important;
+	outline: none !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker :where(.ck-input, .ck-input-text, input)::placeholder {
+	color: rgba(185, 178, 166, 0.6) !important;
+	opacity: 1 !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker .ck-emoji-grid__tile,
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker .ck-emoji-categories__item {
+	background: transparent !important;
+	border-color: transparent !important;
+	color: var(--wiki-ck-ui-text) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker .ck-emoji-grid__tile:hover,
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker .ck-emoji-grid__tile:focus,
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker .ck-emoji-categories__item:hover,
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker .ck-emoji-categories__item:focus,
+body:has(#westgate-wiki-compose) .ck.ck-emoji-picker .ck-emoji-categories__item.ck-on {
+	background: var(--wiki-ck-button-hover-bg) !important;
+	border-color: rgba(194, 163, 90, 0.2) !important;
+	box-shadow: inset 0 1px 0 rgba(255, 244, 221, 0.035) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-list__item .ck-button:hover,
+body:has(#westgate-wiki-compose) .ck.ck-list__item .ck-button.ck-on {
+	color: var(--wiki-ck-list-on-text) !important;
+}
+
+body:has(#westgate-wiki-compose) .ck.ck-input,
+body:has(#westgate-wiki-compose) .ck.ck-labeled-field-view__input-wrapper input,
+body:has(#westgate-wiki-compose) .ck.ck-textarea {
+	background: var(--wiki-ck-input-background) !important;
+	border-color: var(--wiki-ck-input-border) !important;
+	color: var(--wiki-ck-input-text) !important;
 }
