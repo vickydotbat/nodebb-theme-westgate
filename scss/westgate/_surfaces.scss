@@ -70,6 +70,194 @@ li[component="post"] .post-container:hover {
 		0 12px 30px rgba(0, 0, 0, 0.3) !important;
 }
 
+.westgate-powered-by {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 10px 0 14px;
+	color: var(--wg-text-muted);
+	font-family: var(--wg-font-ui);
+	font-size: 0.875rem;
+	letter-spacing: 0;
+	line-height: 1.2;
+	text-align: center;
+}
+
+.westgate-powered-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	min-height: 32px;
+	padding: 6px 12px;
+	background: var(--wg-velvet-panel) !important;
+	border: 1px solid var(--wg-border) !important;
+	border-radius: 8px;
+	box-shadow: var(--wg-velvet-shadow) !important;
+	color: var(--wg-text-muted);
+	line-height: 1;
+	text-decoration: none;
+	transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+}
+
+.westgate-powered-pill:hover,
+.westgate-powered-pill:focus {
+	background: var(--wg-velvet-panel-hover) !important;
+	border-color: rgba(194, 163, 90, 0.22) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.035),
+		inset 0 0 38px rgba(120, 36, 84, 0.14),
+		0 12px 30px rgba(0, 0, 0, 0.3) !important;
+	color: #efe7da;
+	text-decoration: none;
+	outline: none;
+}
+
+.westgate-powered-pill:focus-visible {
+	border-color: rgba(216, 194, 138, 0.38) !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.035),
+		inset 0 0 38px rgba(120, 36, 84, 0.14),
+		0 0 0 2px rgba(194, 163, 90, 0.18),
+		0 12px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.westgate-powered-by .powered-label {
+	color: var(--wg-ledger-ink);
+	font-weight: 600;
+	opacity: 0.95;
+	white-space: nowrap;
+}
+
+.westgate-powered-pill:hover .powered-label,
+.westgate-powered-pill:focus .powered-label {
+	color: #efe7da;
+}
+
+.westgate-powered-by .nodebb-logo,
+.westgate-powered-by .ckeditor-logo {
+	display: block;
+	width: auto;
+	opacity: 0.95;
+}
+
+.westgate-powered-by .nodebb-logo {
+	height: 14px;
+	transform: translateY(-1px);
+}
+
+.westgate-powered-by .ckeditor-logo {
+	height: 14px;
+}
+
+.westgate-powered-pill:hover .nodebb-logo,
+.westgate-powered-pill:focus .nodebb-logo,
+.westgate-powered-pill:hover .ckeditor-logo,
+.westgate-powered-pill:focus .ckeditor-logo {
+	opacity: 1;
+}
+
+.westgate-powered-by .ckeditor-logo path[fill="#1C2331"] {
+	fill: #f2edf7;
+}
+
+.wg-latest-strip {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+	width: 100%;
+	margin: 0 0 1.35rem;
+}
+
+.wg-latest-card {
+	position: relative;
+	min-width: 0;
+	padding: 1rem 1.1rem;
+	overflow: hidden;
+	background:
+		linear-gradient(to bottom, rgba(255, 244, 221, 0.018), rgba(0, 0, 0, 0.08)),
+		var(--wg-velvet-panel) !important;
+	border: 1px solid rgba(194, 163, 90, 0.2);
+	border-radius: 8px;
+	box-shadow: var(--wg-velvet-shadow);
+}
+
+.wg-latest-card::before {
+	content: "";
+	position: absolute;
+	inset: 0 auto 0 0;
+	width: 3px;
+	background: rgba(194, 163, 90, 0.58);
+}
+
+.wg-latest-card--patch::before {
+	background: rgba(143, 178, 119, 0.58);
+}
+
+.wg-latest-kicker {
+	margin-bottom: 0.45rem;
+	color: var(--wg-gold);
+	font-family: var(--wg-font-display);
+	font-size: 0.82rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.wg-latest-title {
+	display: block;
+	color: var(--wg-text);
+	font-family: var(--wg-font-display);
+	font-size: 1.08rem;
+	font-weight: 600;
+	line-height: 1.25;
+	text-decoration: none;
+}
+
+.wg-latest-title:hover,
+.wg-latest-title:focus {
+	color: #fff4dd;
+	text-decoration: none;
+}
+
+.wg-latest-meta {
+	min-height: 1.15rem;
+	margin-top: 0.35rem;
+	color: rgba(185, 178, 166, 0.78);
+	font-family: var(--wg-font-ui);
+	font-size: 0.78rem;
+}
+
+.wg-latest-excerpt {
+	display: -webkit-box;
+	margin: 0.55rem 0 0;
+	overflow: hidden;
+	color: rgba(216, 208, 196, 0.84);
+	font-family: var(--wg-font-text);
+	font-size: 0.9rem;
+	line-height: 1.45;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
+.wg-latest-card.is-loading .wg-latest-title,
+.wg-latest-card.is-empty .wg-latest-title {
+	color: rgba(185, 178, 166, 0.74);
+}
+
+@media (max-width: 767px) {
+	.wg-latest-strip {
+		grid-template-columns: 1fr;
+		gap: 0.75rem;
+		margin-bottom: 1rem;
+	}
+
+	.wg-latest-card {
+		padding: 0.9rem 1rem;
+	}
+}
+
 .badge,
 .btn,
 .dropdown-menu,
