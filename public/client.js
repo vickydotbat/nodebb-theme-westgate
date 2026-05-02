@@ -15,6 +15,48 @@
 */
 
 $(document).ready(function () {
+	function normalizeAccountLinks() {
+		const accountConfig = window.config && window.config.westgateAccount;
+		const template = window.ajaxify && window.ajaxify.data && window.ajaxify.data.template;
+		if (!accountConfig || (template && template.startsWith('admin/'))) {
+			return;
+		}
+
+		const relativePath = window.config.relative_path || '';
+		const replacements = {
+			[`${relativePath}/register`]: accountConfig.registerUrl,
+			'/register': accountConfig.registerUrl,
+			[`${relativePath}/reset`]: accountConfig.recoveryUrl,
+			'/reset': accountConfig.recoveryUrl,
+		};
+
+		document.querySelectorAll('a[href]').forEach((link) => {
+			const original = link.getAttribute('href');
+			if (!original || original.indexOf('local=1') !== -1) {
+				return;
+			}
+
+			let parsed;
+			try {
+				parsed = new URL(original, window.location.origin);
+			} catch (err) {
+				return;
+			}
+
+			if (parsed.origin !== window.location.origin || parsed.search || parsed.hash) {
+				return;
+			}
+
+			const replacement = replacements[parsed.pathname];
+			if (replacement && replacement !== original) {
+				link.setAttribute('href', replacement);
+			}
+		});
+	}
+
+	normalizeAccountLinks();
+	$(window).on('action:ajaxify.end', normalizeAccountLinks);
+
 	require(['api'], function (api) {
 		const originalGet = api.get.bind(api);
 		let categoryClassMapPromise;

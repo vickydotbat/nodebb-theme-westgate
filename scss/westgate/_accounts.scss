@@ -1,0 +1,106 @@
+.wg-account-page {
+	width: 100%;
+	padding: 1.25rem 0 2rem;
+}
+
+.wg-account-page--profile {
+	padding-top: 0;
+}
+
+.wg-account-panel {
+	position: relative;
+	width: min(100%, 740px);
+	padding: clamp(1.1rem, 2vw, 1.65rem);
+	overflow: hidden;
+	background:
+		linear-gradient(135deg, rgba(255, 244, 221, 0.04), transparent 42%),
+		var(--wg-velvet-panel) !important;
+	border: 1px solid rgba(194, 163, 90, 0.22);
+	border-radius: 8px;
+	box-shadow: var(--wg-velvet-shadow);
+}
+
+.wg-account-panel::before {
+	content: "";
+	position: absolute;
+	inset: 0 0 auto;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, rgba(216, 194, 138, 0.68), transparent);
+	opacity: 0.72;
+}
+
+.wg-account-panel--wide {
+	width: 100%;
+}
+
+.wg-account-kicker {
+	margin-bottom: 0.45rem;
+	color: var(--wg-gold);
+	font-family: var(--wg-font-display);
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.wg-account-title {
+	margin: 0;
+	color: var(--wg-text);
+	font-family: var(--wg-font-display);
+	font-weight: 600;
+	letter-spacing: 0;
+	line-height: 1.15;
+}
+
+.wg-account-copy {
+	max-width: 62ch;
+	margin: 0.75rem 0 0;
+	color: var(--wg-text-soft);
+	font-size: 1rem;
+	line-height: 1.55;
+}
+
+.wg-account-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	margin-top: 1.25rem;
+}
+
+.wg-account-actions .btn {
+	white-space: normal;
+}
+
+.wg-account-note {
+	margin: 1rem 0 0;
+	color: var(--wg-text-muted);
+	font-size: 0.9rem;
+	line-height: 1.45;
+}
+
+.wg-account-code {
+	color: var(--wg-gold);
+	font-family: var(--wg-font-mono);
+}
+
+.wg-account-action-list .list-group-item {
+	text-align: left;
+}
+
+.wg-account-session-list {
+	margin-top: 1rem;
+}
+
+@media (max-width: 575px) {
+	.wg-account-page {
+		padding-top: 0.75rem;
+	}
+
+	.wg-account-actions {
+		flex-direction: column;
+	}
+
+	.wg-account-actions .btn {
+		width: 100%;
+	}
+}
