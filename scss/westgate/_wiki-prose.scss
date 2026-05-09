@@ -147,8 +147,8 @@
 	--wiki-fab-btn-border: rgba(216, 194, 138, 0.24);
 	--wiki-fab-danger-bg: rgba(142, 52, 56, 0.16);
 
-	--wiki-article-drawer-layer: 1045;
-	--wiki-article-drawer-backdrop-layer: 1040;
+	--wiki-article-drawer-layer: 1010;
+	--wiki-article-drawer-backdrop-layer: 1005;
 }
 
 /* Wiki surfaces: match forum category/topic panel depth. */
@@ -186,11 +186,11 @@
 }
 
 .westgate-wiki .wiki-article-drawer {
-	z-index: var(--wiki-article-drawer-layer, 1045);
+	z-index: var(--wiki-article-drawer-layer, 1010);
 }
 
 .westgate-wiki .wiki-article-drawer-backdrop {
-	z-index: var(--wiki-article-drawer-backdrop-layer, 1040);
+	z-index: var(--wiki-article-drawer-backdrop-layer, 1005);
 }
 
 .westgate-wiki .card.wiki-card:hover,
@@ -756,6 +756,10 @@
 .westgate-wiki .wiki-index-entry-badge {
 	background: rgba(194, 163, 90, 0.055) !important;
 	border-color: rgba(194, 163, 90, 0.14) !important;
+}
+
+.westgate-wiki .wiki-fab-dock--floating {
+	z-index: var(--wiki-article-drawer-backdrop-layer, 1005);
 }
 
 .westgate-wiki .wiki-fab-dock-inner {
