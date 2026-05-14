@@ -399,15 +399,15 @@
 	color: #efe6d7 !important;
 }
 
-.westgate-wiki .wiki-article-prose p + :where(h1, h2),
-.westgate-wiki-compose .wiki-article-prose .ck.ck-editor__editable_inline.ck-content p + :where(h1, h2),
-.westgate-wiki-compose .ck.ck-editor__editable_inline.wiki-article-prose.ck-content p + :where(h1, h2) {
+.westgate-wiki .wiki-article-prose :where(h1, h2):not(:first-child),
+.westgate-wiki-compose .wiki-article-prose .ck.ck-editor__editable_inline.ck-content :where(h1, h2):not(:first-child),
+.westgate-wiki-compose .ck.ck-editor__editable_inline.wiki-article-prose.ck-content :where(h1, h2):not(:first-child) {
 	margin-block-start: 1.05em;
 }
 
-.westgate-wiki .wiki-article-prose p + :where(h3, h4),
-.westgate-wiki-compose .wiki-article-prose .ck.ck-editor__editable_inline.ck-content p + :where(h3, h4),
-.westgate-wiki-compose .ck.ck-editor__editable_inline.wiki-article-prose.ck-content p + :where(h3, h4) {
+.westgate-wiki .wiki-article-prose :where(h3, h4):not(:first-child),
+.westgate-wiki-compose .wiki-article-prose .ck.ck-editor__editable_inline.ck-content :where(h3, h4):not(:first-child),
+.westgate-wiki-compose .ck.ck-editor__editable_inline.wiki-article-prose.ck-content :where(h3, h4):not(:first-child) {
 	margin-block-start: 0.85em;
 }
 
