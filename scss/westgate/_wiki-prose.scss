@@ -147,6 +147,10 @@
 	--wiki-fab-btn-border: rgba(216, 194, 138, 0.24);
 	--wiki-fab-danger-bg: rgba(142, 52, 56, 0.16);
 
+	--wiki-editor-table-handle-layer: 4;
+	--wiki-editor-floating-toolbar-layer: 20;
+	--wiki-editor-toolbar-layer: 30;
+
 	--wiki-article-drawer-layer: 1010;
 	--wiki-article-drawer-backdrop-layer: 1005;
 }
@@ -926,6 +930,22 @@
 
 .westgate-wiki-compose .wiki-compose-form {
 	padding: 1rem !important;
+}
+
+.westgate-wiki-compose .wiki-editor__content .column-resize-handle,
+.westgate-wiki-compose .wiki-editor-table-resize-handle {
+	z-index: var(--wiki-editor-table-handle-layer, 4) !important;
+}
+
+.westgate-wiki-compose .wiki-editor__toolbar-mount,
+.westgate-wiki-compose .wiki-editor-table-sticky-row {
+	z-index: var(--wiki-editor-toolbar-layer, 30) !important;
+}
+
+.westgate-wiki-compose .wiki-editor-context-tools,
+.westgate-wiki-compose .wiki-editor-image-tools,
+.westgate-wiki-compose .wiki-editor-table-cell-popover {
+	z-index: var(--wiki-editor-floating-toolbar-layer, 20) !important;
 }
 
 .westgate-wiki-compose .form-label {
