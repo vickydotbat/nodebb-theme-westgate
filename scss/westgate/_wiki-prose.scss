@@ -451,15 +451,63 @@
 }
 
 .westgate-wiki .wiki-breadcrumb-trail {
-	color: var(--wg-text-muted);
-	font-family: var(--wg-font-ui);
-	font-weight: 600;
-	letter-spacing: 0.08em;
+	color: #b9b2a6;
+	font-family: var(--wg-font-display);
+	font-size: 0.875rem;
+	gap: 0;
+	font-weight: 500;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
+.westgate-wiki .wiki-breadcrumb-trail__list {
+	gap: 0;
+}
+
+.westgate-wiki .wiki-breadcrumb-trail__item {
+	gap: 0;
+}
+
+.westgate-wiki .wiki-breadcrumb-trail__item:not(:last-child)::after {
+	content: none;
+}
+
+.westgate-wiki .wiki-breadcrumb-trail__item + .wiki-breadcrumb-trail__item {
+	padding-left: 12px;
+}
+
+.westgate-wiki .wiki-breadcrumb-trail__item + .wiki-breadcrumb-trail__item::before,
+.westgate-wiki .wiki-breadcrumb-trail__action::before {
+	color: var(--wg-gold-soft);
+	content: "→";
+	font-family: var(--wg-font-ui);
+	font-weight: 500;
+	padding-right: 12px;
+}
+
+.westgate-wiki .wiki-breadcrumb-trail__link,
+.westgate-wiki .wiki-breadcrumb-trail__text,
 .westgate-wiki .wiki-breadcrumb-trail__text--current,
 .westgate-wiki .wiki-breadcrumb-trail__action {
-	color: var(--wg-text);
+	color: var(--wiki-breadcrumb-color);
+	font-family: var(--wg-font-display);
+}
+
+.westgate-wiki .wiki-breadcrumb-trail__link:hover,
+.westgate-wiki .wiki-breadcrumb-trail__link:focus {
+	color: #e0c878;
+	text-decoration: underline;
+}
+
+.westgate-wiki .wiki-breadcrumb-trail__action {
+	display: inline-flex;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.westgate-wiki .wiki-breadcrumb-trail__action::before {
+	margin-right: 0;
+	opacity: 1;
 }
 
 .westgate-wiki :where(.wiki-card h2, .wiki-topic-card h2, .wiki-section-heading h2, .wiki-subsection-card h3) {
