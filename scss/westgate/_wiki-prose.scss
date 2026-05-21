@@ -1173,6 +1173,21 @@
 	display: contents;
 }
 
+@media (min-width: 768px) {
+	.westgate-wiki .wiki-article-prose .wiki-infobox ~ .wg-mobile-table-scroll {
+		display: block;
+		width: calc(100% - var(--wiki-infobox-reader-width) - var(--wiki-infobox-reader-gutter));
+		max-width: calc(100% - var(--wiki-infobox-reader-width) - var(--wiki-infobox-reader-gutter));
+		overflow-x: auto;
+	}
+
+	.westgate-wiki .wiki-article-prose .wiki-infobox ~ .wg-mobile-table-scroll > table[style*="width:100%"],
+	.westgate-wiki .wiki-article-prose .wiki-infobox ~ .wg-mobile-table-scroll > table[style*="width: 100%"] {
+		width: 100% !important;
+		max-width: 100%;
+	}
+}
+
 @media (max-width: 767.98px) {
 	.westgate-wiki .wiki-article-prose .wg-mobile-table-scroll,
 	.westgate-wiki .wiki-article-prose :where(.tableWrapper, .table-responsive, .table-responsive-sm, .table-responsive-md, figure.table),

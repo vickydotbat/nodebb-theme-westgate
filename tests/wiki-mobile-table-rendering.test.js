@@ -11,6 +11,8 @@ const mobileMediaMatch = stylesheet.match(/@media\s*\(max-width:\s*767\.98px\)\s
 assert(mobileMediaMatch, "Expected a mobile-width table rendering media query");
 
 const mobileStyles = mobileMediaMatch[0];
+const infoboxWidth = "calc(100% - var(--wiki-infobox-reader-width) - var(--wiki-infobox-reader-gutter))";
+const infoboxWidthPattern = infoboxWidth.replace(/[()]/g, "\\$&").replace(/\s+/g, "\\s*");
 
 [
 	".westgate-wiki .wiki-article-prose .wg-mobile-table-scroll",
@@ -53,4 +55,22 @@ const mobileStyles = mobileMediaMatch[0];
 assert(
 	!mobileStyles.includes(".westgate-wiki .wiki-page-content.wiki-article-prose > .card-body {\n\t\tmax-inline-size: 100%;\n\t\toverflow-x: auto"),
 	"Mobile table scrolling should be scoped to table wrappers, not the whole article body"
+);
+
+assert.match(
+	stylesheet,
+	new RegExp(
+		"@media\\s*\\(min-width:\\s*768px\\)\\s*\\{[\\s\\S]*" +
+			"\\.westgate-wiki\\s+\\.wiki-article-prose\\s+\\.wiki-infobox\\s*~\\s*\\.wg-mobile-table-scroll\\s*\\{[^}]*" +
+			"width:\\s*" + infoboxWidthPattern + "[^}]*" +
+			"max-width:\\s*" + infoboxWidthPattern,
+		"s"
+	),
+	"Desktop article tables wrapped by the theme's mobile scroll helper should still shrink beside floated infoboxes"
+);
+
+assert.match(
+	stylesheet,
+	/@media\s*\(min-width:\s*768px\)\s*\{[\s\S]*\.westgate-wiki\s+\.wiki-article-prose\s+\.wiki-infobox\s*~\s*\.wg-mobile-table-scroll\s*>\s*table\[style\*="width:100%"\],\s*\.westgate-wiki\s+\.wiki-article-prose\s+\.wiki-infobox\s*~\s*\.wg-mobile-table-scroll\s*>\s*table\[style\*="width: 100%"\]\s*\{[^}]*width:\s*100%\s*!important[^}]*max-width:\s*100%/s,
+	"Fluid-width tables inside the theme's scroll wrapper should fill the shrunken infobox-safe wrapper"
 );
