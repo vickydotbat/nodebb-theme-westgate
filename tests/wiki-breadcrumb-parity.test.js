@@ -20,6 +20,11 @@ function ruleHasDeclaration(selector, declaration) {
 	return false;
 }
 
+assert(
+	ruleHasDeclaration(".westgate-wiki .wiki-breadcrumb-trail__action", "padding-left: 12px"),
+	"Wiki edit action should keep the same left-side separator spacing as breadcrumb items"
+);
+
 [
 	"--wiki-breadcrumb-color: color-mix(in srgb, var(--wg-text-muted) 68%, transparent)",
 	"font-family: var(--wg-font-display)",
